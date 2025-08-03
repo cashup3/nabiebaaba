@@ -6,6 +6,7 @@ import { Trail } from "./TrailText";
 
 import LetsTalk from "./LetsTalk";
 import MenuButton from "./MenuButton";
+import MobileMenuButton from "./MobileMenuButton";
 import Link from "next/link";
 import MusicButton from "./MusicButton";
 import Image from "next/image";
@@ -32,15 +33,7 @@ function Navbar() {
           </div>
           <div className="flex items-center gap-2">
             <NightModeToggle />
-            <div
-              className="nav_btn_sm flex items-center justify-center cursor-pointer"
-              onMouseEnter={() => setRotate({ transform: "rotate(90deg)" })}
-              onMouseLeave={() => setRotate({ transform: "rotate(0deg)" })}
-            >
-              <animated.div className="text-[0.5rem] " style={rotate}>
-                ⬤ ⬤
-              </animated.div>
-            </div>
+            <MobileMenuButton />
           </div>
         </div>
       </div>

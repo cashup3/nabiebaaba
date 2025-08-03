@@ -54,12 +54,12 @@ const Menu = ({ open, onOutsideClick }) => {
     <>
       {hidden && (
         <div
-          className="absolute top-[4rem] right-0 w-[20rem] "
+          className="absolute top-[4rem] right-0 w-[calc(100vw-2rem)] lg:w-[20rem] max-w-[20rem]"
           ref={ref}
         >
           {/* Contents */}
           <a.div
-            className="rounded-xl bg-white dark:bg-gray-800 flex flex-col font-Aeonik text-3xl p-8 dark:text-white"
+            className="rounded-xl bg-white dark:bg-gray-800 flex flex-col font-Aeonik text-2xl lg:text-3xl p-6 lg:p-8 dark:text-white"
             style={contents}
           >
             <div className="flex justify-between pb-3">
@@ -79,15 +79,15 @@ const Menu = ({ open, onOutsideClick }) => {
 
           {/* Newsletter */}
           <a.div
-            className="rounded-xl bg-white dark:bg-gray-800 flex flex-col p-8 my-2 dark:text-white"
+            className="rounded-xl bg-white dark:bg-gray-800 flex flex-col p-6 lg:p-8 my-2 dark:text-white"
             style={news}
           >
-            <div className="font-Aeonik text-4xl ">
+            <div className="font-Aeonik text-2xl lg:text-4xl ">
               Subscribe to our newsletter
             </div>
             <form
               onSubmit={() => console.log("submitted thank you")}
-              className="flex justify-between bg-[#F0F1FA] dark:bg-gray-700 p-4 rounded-xl mt-6 text-[#BEBFC7] dark:text-gray-300 text-xl"
+              className="flex justify-between bg-[#F0F1FA] dark:bg-gray-700 p-3 lg:p-4 rounded-xl mt-6 text-[#BEBFC7] dark:text-gray-300 text-lg lg:text-xl"
             >
               <label className="">
                 <input
@@ -108,9 +108,9 @@ const Menu = ({ open, onOutsideClick }) => {
           </a.div>
 
           {/* Labs */}
-          <a.div className="bg-black text-white p-8 rounded-xl" style={contents}>
+          <a.div className="bg-black text-white p-6 lg:p-8 rounded-xl" style={contents}>
             <Link href="/labs">
-              <div className="flex justify-between text-3xl">
+                              <div className="flex justify-between text-2xl lg:text-3xl">
                 <div>LABS</div>
                 <svg
                   width="30px"
