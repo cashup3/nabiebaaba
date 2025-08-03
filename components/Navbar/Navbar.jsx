@@ -7,6 +7,7 @@ import { Trail } from "./TrailText";
 import LetsTalk from "./LetsTalk";
 import MenuButton from "./MenuButton";
 import MobileMenuButton from "./MobileMenuButton";
+import MobileLetsTalk from "./MobileLetsTalk";
 import Link from "next/link";
 import MusicButton from "./MusicButton";
 import Image from "next/image";
@@ -32,6 +33,7 @@ function Navbar() {
             <Link href="/"><Image src={'/smatik_logo.png'} width={'80'} height={'80'} className="sm:w-[100px] sm:h-[100px] dark:invert dark:brightness-0 dark:contrast-200"/></Link>
           </div>
           <div className="flex items-center gap-2">
+            <MobileLetsTalk />
             <NightModeToggle />
             <MobileMenuButton />
           </div>

@@ -105,6 +105,22 @@ export default function Home() {
           <div className="absolute text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-center w-full h-full top-[10rem] sm:top-[20rem] md:top-[30rem] lg:top-[40rem] px-4">
             Made By Knob Studio
           </div>
+          <div className="absolute text-base sm:text-lg md:text-xl lg:text-2xl text-center w-full h-full top-[12rem] sm:top-[22rem] md:top-[32rem] lg:top-[42rem] px-4 space-y-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
+              <a 
+                href="mailto:info@knobstud.com" 
+                className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300 underline"
+              >
+                info@knobstud.com
+              </a>
+              <a 
+                href="tel:+15149293511" 
+                className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300 underline"
+              >
+                +1 (514) 929-3511
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </Suspense>
