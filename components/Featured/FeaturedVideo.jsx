@@ -24,7 +24,7 @@ const FeaturedVideo = ({refForward, ...props }) => {
       variants={variants}
       initial="initial"
       animate={progress > 0.5 ? "animate" : "initial"}
-      className="rounded-3xl bg-blue-200 w-[40vw] h-[20rem] absolute top-[600px] left-0 flex items-center justify-center text-4xl text-bold z-30"
+      className="rounded-3xl bg-blue-200 w-[80vw] sm:w-[60vw] lg:w-[40vw] h-[12rem] sm:h-[16rem] lg:h-[20rem] absolute top-[400px] sm:top-[500px] lg:top-[600px] left-0 flex items-center justify-center text-2xl sm:text-3xl lg:text-4xl text-bold z-30"
       {...props}
     >
       Featured Video

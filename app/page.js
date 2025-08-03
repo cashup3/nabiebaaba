@@ -105,7 +105,7 @@ export default function Home() {
           <div className="absolute text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-center w-full h-full top-[10rem] sm:top-[20rem] md:top-[30rem] lg:top-[40rem] px-4">
             Made By Knob Studio
           </div>
-          <div className="absolute text-base sm:text-lg md:text-xl lg:text-2xl text-center w-full h-full top-[12rem] sm:top-[22rem] md:top-[32rem] lg:top-[42rem] px-4 space-y-2">
+          <div className="absolute text-base sm:text-lg md:text-xl lg:text-2xl text-center w-full h-full top-[16rem] sm:top-[28rem] md:top-[40rem] lg:top-[52rem] px-4 space-y-2">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
               <a 
                 href="mailto:info@knobstud.com" 
