@@ -59,7 +59,7 @@ const Menu = ({ open, onOutsideClick }) => {
         >
           {/* Contents */}
           <a.div
-            className="rounded-xl bg-white flex flex-col font-Aeonik text-3xl p-8"
+            className="rounded-xl bg-white dark:bg-gray-800 flex flex-col font-Aeonik text-3xl p-8 dark:text-white"
             style={contents}
           >
             <div className="flex justify-between pb-3">
@@ -79,7 +79,7 @@ const Menu = ({ open, onOutsideClick }) => {
 
           {/* Newsletter */}
           <a.div
-            className="rounded-xl bg-white flex flex-col p-8 my-2"
+            className="rounded-xl bg-white dark:bg-gray-800 flex flex-col p-8 my-2 dark:text-white"
             style={news}
           >
             <div className="font-Aeonik text-4xl ">
@@ -87,13 +87,13 @@ const Menu = ({ open, onOutsideClick }) => {
             </div>
             <form
               onSubmit={() => console.log("submitted thank you")}
-              className="flex justify-between bg-[#F0F1FA] p-4 rounded-xl mt-6 text-[#BEBFC7] text-xl"
+              className="flex justify-between bg-[#F0F1FA] dark:bg-gray-700 p-4 rounded-xl mt-6 text-[#BEBFC7] dark:text-gray-300 text-xl"
             >
               <label className="">
                 <input
                   type="email"
                   placeholder="Your email"
-                  className="bg-[#F0F1FA] w-1/2"
+                  className="bg-[#F0F1FA] dark:bg-gray-700 dark:text-white w-1/2"
                 ></input>
               </label>
               <button type="submit">

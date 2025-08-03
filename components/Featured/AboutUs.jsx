@@ -18,7 +18,7 @@ const AboutUs = () => {
   }));
   return (
     <div
-      className="nav_btn_lg flex items-center justify-center hover:bg-brblue py-6 bg-white shadow-md mt-10 hover:text-white"
+      className="nav_btn_lg flex items-center justify-center hover:bg-brblue dark:hover:bg-white py-6 bg-white dark:bg-gray-800 shadow-md mt-10 hover:text-white dark:hover:text-black dark:text-white transition-colors duration-300"
       onMouseEnter={() => {
         api.start({  x: 20 });
         opacityApi.start({ opacity: 0, x: 5 });

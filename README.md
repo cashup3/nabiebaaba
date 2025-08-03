@@ -1,4 +1,4 @@
-# Elkovi IT company website
+# Knob Studio - Creative Digital Experiences
 ---
 ### This is a replica of [lusion](https://lusion.co/)
 
