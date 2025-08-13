@@ -6,6 +6,7 @@ const FeaturedVideo = ({refForward, ...props }) => {
   const videoRef = useRef(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isVideoVisible, setIsVideoVisible] = useState(false);
+  const [videoError, setVideoError] = useState(false);
 
   const variants = {
     inital: { scale: 1, x: 0, y: 0 },
@@ -21,10 +22,17 @@ const FeaturedVideo = ({refForward, ...props }) => {
     setProgress(value);
   });
 
+  // Handle video errors
+  const handleVideoError = () => {
+    console.error("Video failed to load or play");
+    setVideoError(true);
+  };
+
   // Only load video when it's visible and user interacts
   const handleVideoClick = () => {
     if (!isVideoLoaded && videoRef.current) {
       setIsVideoLoaded(true);
+      setVideoError(false);
       videoRef.current.load();
     }
   };
@@ -64,22 +72,33 @@ const FeaturedVideo = ({refForward, ...props }) => {
         playsInline
         muted
         onClick={handleVideoClick}
+        onError={handleVideoError}
+        onLoadStart={() => setVideoError(false)}
       >
         {isVideoLoaded && isVideoVisible && (
           <>
             <source src="/videos/knob studio demo.mov" type="video/quicktime" />
-            <source src="/videos/featured-video.mp4" type="video/mp4" />
-            <source src="/videos/featured-video.webm" type="video/webm" />
+            <source src="/videos/knob studio demo.mov" type="video/mp4" />
+            <source src="/videos/knob studio demo.mov" type="video/x-msvideo" />
           </>
         )}
         Your browser does not support the video tag.
       </video>
       
       {/* Loading overlay - shows until video is loaded */}
-      {!isVideoLoaded && (
+      {!isVideoLoaded && !videoError && (
         <div className="absolute inset-0 bg-blue-200 flex flex-col items-center justify-center rounded-3xl cursor-pointer" onClick={handleVideoClick}>
           <div className="text-center mb-2">Featured Video</div>
           <div className="text-sm opacity-70">Click to load video</div>
+        </div>
+      )}
+
+      {/* Error overlay - shows if video fails to load */}
+      {videoError && (
+        <div className="absolute inset-0 bg-red-200 flex flex-col items-center justify-center rounded-3xl">
+          <div className="text-center mb-2 text-red-800">Video Format Not Supported</div>
+          <div className="text-sm opacity-70 text-red-700">.MOV files may not work in all browsers</div>
+          <div className="text-xs mt-2 text-red-600">Try converting to MP4 format</div>
         </div>
       )}
     </motion.div>
