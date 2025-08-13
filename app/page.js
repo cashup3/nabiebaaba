@@ -88,7 +88,7 @@ export default function Home() {
           <ScrollText />
         </div>
       {/* </div> */}
-        <div className="h-[150vh] relative mt-[8rem] sm:mt-[12rem] lg:mt-[16rem]" ref={ref}>
+        <div className="h-[180vh] relative mt-[8rem] sm:mt-[12rem] lg:mt-[16rem]" ref={ref}>
           <Skiggle />
           <Header />
           <SubHeader />
