@@ -77,9 +77,8 @@ const FeaturedVideo = ({refForward, ...props }) => {
       >
         {isVideoLoaded && isVideoVisible && (
           <>
-            <source src="/videos/knob studio demo.mov" type="video/quicktime" />
-            <source src="/videos/knob studio demo.mov" type="video/mp4" />
-            <source src="/videos/knob studio demo.mov" type="video/x-msvideo" />
+            <source src="/videos/featured-video.mp4" type="video/mp4" />
+            <source src="/videos/featured-video.webm" type="video/webm" />
           </>
         )}
         Your browser does not support the video tag.
@@ -87,9 +86,8 @@ const FeaturedVideo = ({refForward, ...props }) => {
       
       {/* Loading overlay - shows until video is loaded */}
       {!isVideoLoaded && !videoError && (
-        <div className="absolute inset-0 bg-blue-200 flex flex-col items-center justify-center rounded-3xl cursor-pointer" onClick={handleVideoClick}>
-          <div className="text-center mb-2">Featured Video</div>
-          <div className="text-sm opacity-70">Click to load video</div>
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center rounded-3xl cursor-pointer" onClick={handleVideoClick}>
+          <div className="text-center mb-2 text-white">Click to load video</div>
         </div>
       )}
 

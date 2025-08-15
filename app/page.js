@@ -98,9 +98,6 @@ export default function Home() {
         <Connection className="" />
       {/* <div className="bg-brblue flex items-center justify-center w-full h-screen font-extrabold text-9xl"> this is the footer  </div> */}
         <div className="relative">
-          <div className="absolute text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-bold text-center w-full h-full top-20 sm:top-40 md:top-60 lg:top-80 px-4">
-            With       Love
-          </div>
           <Footer />
           <div className="absolute text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-center w-full h-full top-[10rem] sm:top-[20rem] md:top-[30rem] lg:top-[40rem] px-4">
             Made By Knob Studio
@@ -112,12 +109,6 @@ export default function Home() {
                 className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300 underline"
               >
                 info@knobstud.com
-              </a>
-              <a 
-                href="tel:+15149293511" 
-                className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300 underline"
-              >
-                +1 (514) 929-3511
               </a>
             </div>
           </div>

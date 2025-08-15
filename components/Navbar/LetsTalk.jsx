@@ -18,19 +18,8 @@ const LetsTalk = () => {
   }));
 
   const handleClick = () => {
-    // For mobile devices, use tel: protocol
-    if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      window.location.href = 'tel:+15149293511';
-    } else {
-      // For desktop, show a prompt or copy to clipboard
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText('+15149293511').then(() => {
-          alert('Phone number copied to clipboard: +15149293511');
-        });
-      } else {
-        alert('Phone number: +15149293511');
-      }
-    }
+    // Open email client with info@knobstud.com
+    window.location.href = 'mailto:info@knobstud.com';
   };
 
   return (

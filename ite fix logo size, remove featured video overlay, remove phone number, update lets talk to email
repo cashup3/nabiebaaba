@@ -1,0 +1,9 @@
+warning: in the working copy of 'app/page.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Featured/FeaturedVideo.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Navbar/LetsTalk.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Navbar/Navbar.jsx', LF will be replaced by CRLF the next time Git touches it
+app/page.js
+components/Featured/FeaturedVideo.jsx
+components/Navbar/LetsTalk.jsx
+components/Navbar/MobileLetsTalk.jsx
+components/Navbar/Navbar.jsx
