@@ -91,14 +91,7 @@ const FeaturedVideo = ({refForward, ...props }) => {
         </div>
       )}
 
-      {/* Error overlay - shows if video fails to load */}
-      {videoError && (
-        <div className="absolute inset-0 bg-red-200 flex flex-col items-center justify-center rounded-3xl">
-          <div className="text-center mb-2 text-red-800">Video Format Not Supported</div>
-          <div className="text-sm opacity-70 text-red-700">.MOV files may not work in all browsers</div>
-          <div className="text-xs mt-2 text-red-600">Try converting to MP4 format</div>
-        </div>
-      )}
+      {/* Error overlay removed as requested */}
     </motion.div>
   );
 };
