@@ -1,7 +1,7 @@
 "use client";
 import { Suspense, useRef } from "react";
 import Footer from "@/components/Character/Experience";
-import FeaturedVideo from "@/components/Featured/FeaturedVideo";
+
 import Header from "@/components/Featured/Header";
 import Skiggle from "@/components/Featured/Skiggle";
 import SubHeader from "@/components/Featured/SubHeader";
@@ -92,7 +92,6 @@ export default function Home() {
           <Skiggle />
           <Header />
           <SubHeader />
-          <FeaturedVideo refForward={ref} />
         </div>
         <FeaturedWork />
         <Connection className="" />
