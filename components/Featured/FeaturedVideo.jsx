@@ -66,10 +66,10 @@ const FeaturedVideo = ({refForward, ...props }) => {
       <video
         ref={videoRef}
         className="w-full h-full object-cover rounded-3xl"
-        controls
-        preload="none"
-        poster="/textures/planet_1.jpg"
-        playsInline
+                        controls
+                preload="none"
+                poster="/textures/thumbnail.jpg"
+                playsInline
         muted
         onClick={handleVideoClick}
         onError={handleVideoError}
@@ -77,8 +77,7 @@ const FeaturedVideo = ({refForward, ...props }) => {
       >
         {isVideoLoaded && isVideoVisible && (
           <>
-            <source src="/videos/featured-video.mp4" type="video/mp4" />
-            <source src="/videos/featured-video.webm" type="video/webm" />
+            <source src="/videos/knob studio demo.mov" type="video/quicktime" />
           </>
         )}
         Your browser does not support the video tag.

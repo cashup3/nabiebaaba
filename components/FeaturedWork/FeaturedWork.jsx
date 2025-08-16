@@ -35,33 +35,10 @@ const FeaturedWork = () => {
           <br /> CLIENTS AND FRIENDS OVER THE YEARS
         </div>
       </div>
-      
-      {/* Featured Video Section */}
-      <div className="w-full mt-8 lg:mt-12 mb-8 lg:mb-12">
-        <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center">
-          Featured Video
-        </div>
-        <div className="relative w-full max-w-6xl mx-auto">
-          <div className="aspect-video w-full rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl">
-            <video
-              className="w-full h-full object-cover"
-              controls
-              preload="metadata"
-              poster="/textures/planet_1.jpg"
-            >
-              <source src="/videos/featured-video.mp4" type="video/mp4" />
-              <source src="/videos/featured-video.webm" type="video/webm" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none rounded-2xl lg:rounded-3xl"></div>
-        </div>
-      </div>
-
       <div className="relative grid grid-rows-3 grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 perspective-1000 w-full h-auto transform-style-3d mt-8 lg:mt-0">
         {Array.from({ length: 6 }, (_, index) => (
           <motion.div ref={ref} className={"flex items-center shadow-lg text-center justify-center w-full max-w-[20rem] sm:max-w-[25rem] lg:w-[30rem] rounded-2xl lg:rounded-3xl h-[15rem] sm:h-[20rem] lg:h-[27rem] text-black text-2xl sm:text-4xl lg:text-6xl"} style={{ rotateX: velocityFactor }}>
-            <Image src={`/textures/planet_${index + 1}.jpg`} width={300} height={270} className="w-full h-full object-cover rounded-2xl lg:rounded-3xl"/>
+            <Image src={`/textures/497205817043227020${index + 3}.jpg`} width={300} height={270} className="w-full h-full object-cover rounded-2xl lg:rounded-3xl"/>
           </motion.div>
         ))}
       </div>

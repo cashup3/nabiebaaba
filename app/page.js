@@ -10,6 +10,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import ScrollText from "@/components/Navbar/ScrollText";
 import { Scene } from "@/components/Pipes/CrossPipes";
 import FeaturedWork from "@/components/FeaturedWork/FeaturedWork";
+import FeaturedVideo from "@/components/Featured/FeaturedVideo";
 import Connection from "@/components/ConnectingSection/Connection";
 import Experience from "@/components/Experience/Experience";
 import { Planets } from "@/components/Pipes/Planets";
@@ -94,6 +95,7 @@ export default function Home() {
           <SubHeader />
         </div>
         <FeaturedWork />
+        <FeaturedVideo />
         <Connection className="" />
       {/* <div className="bg-brblue flex items-center justify-center w-full h-screen font-extrabold text-9xl"> this is the footer  </div> */}
         <div className="relative">
