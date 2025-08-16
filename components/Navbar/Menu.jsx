@@ -69,9 +69,6 @@ const Menu = ({ open, onOutsideClick }) => {
             <div className="py-3">
               <Link href={"/about"}>ABOUT US</Link>
             </div>
-            <div className="py-3">
-              <Link href="/projects">PROJECTS</Link>
-            </div>
             <div className="pt-3">
               <Link href="/contact">CONTACT</Link>
             </div>

@@ -32,62 +32,62 @@ const Contact = () => {
 
       {/* Contact Section */}
       <div className="relative z-10 bg-[#F0F1FA] dark:bg-black min-h-screen">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 py-16 sm:py-20 lg:py-24 xl:py-32 max-w-7xl">
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-16 xl:gap-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12 xl:px-24 2xl:px-32 py-16 sm:py-20 lg:py-32 xl:py-40 2xl:py-48 max-w-[1400px]">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-16 lg:gap-20 xl:gap-24 2xl:gap-32">
             {/* Contact Info */}
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="space-y-8 lg:space-y-10"
+              className="space-y-10 lg:space-y-12 xl:space-y-16"
             >
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold">
                 Get In Touch
               </h2>
-              <p className="text-lg lg:text-xl xl:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-xl">
                 Ready to start your next project? We'd love to hear from you and discuss how we can bring your vision to life.
               </p>
               
-              <div className="space-y-6 lg:space-y-8">
-                <div className="flex items-center space-x-4 lg:space-x-6">
-                  <div className="w-12 h-12 lg:w-16 lg:h-16 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="space-y-8 lg:space-y-10 xl:space-y-12">
+                <div className="flex items-center space-x-6 lg:space-x-8 xl:space-x-10">
+                  <div className="w-16 h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg className="w-8 h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 002 2z" />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg lg:text-xl xl:text-2xl">Email</h3>
-                    <a href="mailto:info@knobstud.com" className="text-blue-600 dark:text-blue-400 hover:underline text-base lg:text-lg">
+                    <h3 className="font-semibold text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl">Email</h3>
+                    <a href="mailto:info@knobstud.com" className="text-blue-600 dark:text-blue-400 hover:underline text-lg lg:text-xl xl:text-2xl">
                       info@knobstud.com
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4 lg:space-x-6">
-                  <div className="w-12 h-12 lg:w-16 lg:h-16 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="flex items-center space-x-6 lg:space-x-8 xl:space-x-10">
+                  <div className="w-16 h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg className="w-8 h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg lg:text-xl xl:text-2xl">Phone</h3>
-                    <a href="tel:+15149293511" className="text-blue-600 dark:text-blue-400 hover:underline text-base lg:text-lg">
+                    <h3 className="font-semibold text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl">Phone</h3>
+                    <a href="tel:+15149293511" className="text-blue-600 dark:text-blue-400 hover:underline text-lg lg:text-xl xl:text-2xl">
                       +1 (514) 929-3511
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4 lg:space-x-6">
-                  <div className="w-12 h-12 lg:w-16 lg:h-16 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="flex items-center space-x-6 lg:space-x-8 xl:space-x-10">
+                  <div className="w-16 h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg className="w-8 h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg lg:text-xl xl:text-2xl">Location</h3>
-                    <p className="text-gray-600 dark:text-gray-300 text-base lg:text-lg">
+                    <h3 className="font-semibold text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl">Location</h3>
+                    <p className="text-gray-600 dark:text-gray-300 text-lg lg:text-xl xl:text-2xl">
                       Toronto, Ontario, Canada
                     </p>
                   </div>
@@ -101,59 +101,59 @@ const Contact = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl lg:rounded-3xl p-6 lg:p-8 xl:p-10 shadow-lg lg:shadow-xl"
+              className="bg-white dark:bg-gray-800 rounded-3xl xl:rounded-4xl p-8 lg:p-10 xl:p-12 2xl:p-16 shadow-xl xl:shadow-2xl"
             >
-              <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold mb-6 lg:mb-8">Send us a message</h3>
-              <form className="space-y-6 lg:space-y-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+              <h3 className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-8 lg:mb-10 xl:mb-12">Send us a message</h3>
+              <form className="space-y-8 lg:space-y-10 xl:space-y-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 xl:gap-10">
                   <div>
-                    <label className="block text-sm lg:text-base font-medium mb-2 lg:mb-3">First Name</label>
+                    <label className="block text-base lg:text-lg xl:text-xl font-medium mb-3 lg:mb-4">First Name</label>
                     <input 
                       type="text" 
-                      className="w-full px-4 py-3 lg:py-4 border border-gray-300 dark:border-gray-600 rounded-lg lg:rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base lg:text-lg"
+                      className="w-full px-6 py-4 lg:py-5 xl:py-6 border border-gray-300 dark:border-gray-600 rounded-xl xl:rounded-2xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg lg:text-xl"
                       placeholder="John"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm lg:text-base font-medium mb-2 lg:mb-3">Last Name</label>
+                    <label className="block text-base lg:text-lg xl:text-xl font-medium mb-3 lg:mb-4">Last Name</label>
                     <input 
                       type="text" 
-                      className="w-full px-4 py-3 lg:py-4 border border-gray-300 dark:border-gray-600 rounded-lg lg:rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base lg:text-lg"
+                      className="w-full px-6 py-4 lg:py-5 xl:py-6 border border-gray-300 dark:border-gray-600 rounded-xl xl:rounded-2xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg lg:text-xl"
                       placeholder="Doe"
                     />
                   </div>
                 </div>
                 
                 <div>
-                  <label className="block text-sm lg:text-base font-medium mb-2 lg:mb-3">Email</label>
+                  <label className="block text-base lg:text-lg xl:text-xl font-medium mb-3 lg:mb-4">Email</label>
                   <input 
                     type="email" 
-                    className="w-full px-4 py-3 lg:py-4 border border-gray-300 dark:border-gray-600 rounded-lg lg:rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base lg:text-lg"
+                    className="w-full px-6 py-4 lg:py-5 xl:py-6 border border-gray-300 dark:border-gray-600 rounded-xl xl:rounded-2xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg lg:text-xl"
                     placeholder="john@example.com"
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-sm lg:text-base font-medium mb-2 lg:mb-3">Subject</label>
+                  <label className="block text-base lg:text-lg xl:text-xl font-medium mb-3 lg:mb-4">Subject</label>
                   <input 
                     type="text" 
-                    className="w-full px-4 py-3 lg:py-4 border border-gray-300 dark:border-gray-600 rounded-lg lg:rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base lg:text-lg"
+                    className="w-full px-6 py-4 lg:py-5 xl:py-6 border border-gray-300 dark:border-gray-600 rounded-xl xl:rounded-2xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg lg:text-xl"
                     placeholder="Project inquiry"
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-sm lg:text-base font-medium mb-2 lg:mb-3">Message</label>
+                  <label className="block text-base lg:text-lg xl:text-xl font-medium mb-3 lg:mb-4">Message</label>
                   <textarea 
                     rows={6}
-                    className="w-full px-4 py-3 lg:py-4 border border-gray-300 dark:border-gray-600 rounded-lg lg:rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-base lg:text-lg"
+                    className="w-full px-6 py-4 lg:py-5 xl:py-6 border border-gray-300 dark:border-gray-600 rounded-xl xl:rounded-2xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-lg lg:text-xl"
                     placeholder="Tell us about your project..."
                   ></textarea>
                 </div>
                 
                 <button 
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 lg:py-4 px-6 lg:px-8 rounded-lg lg:rounded-xl transition-colors duration-300 text-base lg:text-lg"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 lg:py-5 xl:py-6 px-8 lg:px-10 xl:px-12 rounded-xl xl:rounded-2xl transition-colors duration-300 text-lg lg:text-xl xl:text-2xl"
                 >
                   Send Message
                 </button>

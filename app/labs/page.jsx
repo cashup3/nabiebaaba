@@ -32,24 +32,24 @@ const Labs = () => {
 
       {/* Labs Section */}
       <div className="relative z-10 bg-[#F0F1FA] dark:bg-black min-h-screen">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 py-16 sm:py-20 lg:py-24 xl:py-32 max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 xl:gap-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12 xl:px-24 2xl:px-32 py-16 sm:py-20 lg:py-32 xl:py-40 2xl:py-48 max-w-[1400px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-12 xl:gap-16 2xl:gap-20">
             {/* Lab Project 1 */}
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl lg:rounded-3xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="bg-white dark:bg-gray-800 rounded-3xl xl:rounded-4xl p-8 lg:p-10 xl:p-12 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
             >
-              <div className="w-full h-48 lg:h-56 bg-gradient-to-br from-red-400 to-pink-600 rounded-xl lg:rounded-2xl mb-4 lg:mb-6 flex items-center justify-center">
-                <span className="text-white text-2xl lg:text-3xl xl:text-4xl font-bold">AI</span>
+              <div className="w-full h-56 lg:h-64 xl:h-72 bg-gradient-to-br from-red-400 to-pink-600 rounded-2xl xl:rounded-3xl mb-6 lg:mb-8 flex items-center justify-center">
+                <span className="text-white text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold">AI</span>
               </div>
-              <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold mb-2 lg:mb-3">AI Experiments</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mb-4 lg:mb-6 leading-relaxed">
+              <h3 className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold mb-3 lg:mb-4 xl:mb-6">AI Experiments</h3>
+              <p className="text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-600 dark:text-gray-300 mb-6 lg:mb-8 leading-relaxed">
                 Exploring artificial intelligence and machine learning applications in creative design.
               </p>
-              <span className="inline-block bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-xs lg:text-sm px-2 py-1 lg:px-3 lg:py-2 rounded-full">
+              <span className="inline-block bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-sm lg:text-base xl:text-lg px-3 py-2 lg:px-4 lg:py-3 xl:px-5 xl:py-4 rounded-full">
                 Experimental
               </span>
             </motion.div>
@@ -60,16 +60,16 @@ const Labs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl lg:rounded-3xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="bg-white dark:bg-gray-800 rounded-3xl xl:rounded-4xl p-8 lg:p-10 xl:p-12 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
             >
-              <div className="w-full h-48 lg:h-56 bg-gradient-to-br from-blue-400 to-cyan-600 rounded-xl lg:rounded-2xl mb-4 lg:mb-6 flex items-center justify-center">
-                <span className="text-white text-2xl lg:text-3xl xl:text-4xl font-bold">VR</span>
+              <div className="w-full h-56 lg:h-64 xl:h-72 bg-gradient-to-br from-blue-400 to-cyan-600 rounded-2xl xl:rounded-3xl mb-6 lg:mb-8 flex items-center justify-center">
+                <span className="text-white text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold">VR</span>
               </div>
-              <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold mb-2 lg:mb-3">Virtual Reality</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mb-4 lg:mb-6 leading-relaxed">
+              <h3 className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold mb-3 lg:mb-4 xl:mb-6">Virtual Reality</h3>
+              <p className="text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-600 dark:text-gray-300 mb-6 lg:mb-8 leading-relaxed">
                 Immersive VR experiences and spatial computing experiments.
               </p>
-              <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs lg:text-sm px-2 py-1 lg:px-3 lg:py-2 rounded-full">
+              <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm lg:text-base xl:text-lg px-3 py-2 lg:px-4 lg:py-3 xl:px-5 xl:py-4 rounded-full">
                 Prototype
               </span>
             </motion.div>
@@ -80,16 +80,16 @@ const Labs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl lg:rounded-3xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="bg-white dark:bg-gray-800 rounded-3xl xl:rounded-4xl p-8 lg:p-10 xl:p-12 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
             >
-              <div className="w-full h-48 lg:h-56 bg-gradient-to-br from-green-400 to-emerald-600 rounded-xl lg:rounded-2xl mb-4 lg:mb-6 flex items-center justify-center">
-                <span className="text-white text-2xl lg:text-3xl xl:text-4xl font-bold">AR</span>
+              <div className="w-full h-56 lg:h-64 xl:h-72 bg-gradient-to-br from-green-400 to-emerald-600 rounded-2xl xl:rounded-3xl mb-6 lg:mb-8 flex items-center justify-center">
+                <span className="text-white text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold">AR</span>
               </div>
-              <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold mb-2 lg:mb-3">Augmented Reality</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mb-4 lg:mb-6 leading-relaxed">
+              <h3 className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold mb-3 lg:mb-4 xl:mb-6">Augmented Reality</h3>
+              <p className="text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-600 dark:text-gray-300 mb-6 lg:mb-8 leading-relaxed">
                 AR overlays and mixed reality experiences for mobile devices.
               </p>
-              <span className="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs lg:text-sm px-2 py-1 lg:px-3 lg:py-2 rounded-full">
+              <span className="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm lg:text-base xl:text-lg px-3 py-2 lg:px-4 lg:py-3 xl:px-5 xl:py-4 rounded-full">
                 In Progress
               </span>
             </motion.div>
