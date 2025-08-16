@@ -59,7 +59,7 @@ const Menu = ({ open, onOutsideClick }) => {
         >
           {/* Contents */}
           <a.div
-            className="rounded-xl bg-white dark:bg-gray-800 flex flex-col font-Aeonik text-2xl lg:text-3xl p-6 lg:p-8 dark:text-white"
+            className="rounded-xl bg-white dark:bg-gray-800 flex flex-col font-Aeonik text-2xl lg:text-3xl p-6 lg:p-8 text-gray-900 dark:text-white"
             style={contents}
           >
             <div className="flex justify-between pb-3">
@@ -79,7 +79,7 @@ const Menu = ({ open, onOutsideClick }) => {
 
           {/* Newsletter */}
           <a.div
-            className="rounded-xl bg-white dark:bg-gray-800 flex flex-col p-6 lg:p-8 my-2 dark:text-white"
+            className="rounded-xl bg-white dark:bg-gray-800 flex flex-col p-6 lg:p-8 my-2 text-gray-900 dark:text-white"
             style={news}
           >
             <div className="font-Aeonik text-2xl lg:text-4xl ">

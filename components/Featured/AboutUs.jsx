@@ -1,7 +1,10 @@
 import React from "react";
 import { useSpring, a } from "@react-spring/web";
+import { useRouter } from "next/navigation";
 
 const AboutUs = () => {
+  const router = useRouter();
+  
   const [springs, api] = useSpring(() => ({
     from:{x:0},
     x: -10,
@@ -16,9 +19,14 @@ const AboutUs = () => {
     opacity: 0,
     x:-10,
   }));
+
+  const handleClick = () => {
+    router.push('/about');
+  };
+
   return (
     <div
-      className="nav_btn_lg flex items-center justify-center hover:bg-brblue dark:hover:bg-white py-6 bg-white dark:bg-gray-800 shadow-md mt-10 hover:text-white dark:hover:text-black dark:text-white transition-colors duration-300"
+      className="nav_btn_lg flex items-center justify-center hover:bg-brblue dark:hover:bg-white py-6 bg-white dark:bg-gray-800 shadow-md mt-10 hover:text-white dark:hover:text-black dark:text-white transition-colors duration-300 cursor-pointer"
       onMouseEnter={() => {
         api.start({  x: 20 });
         opacityApi.start({ opacity: 0, x: 5 });
@@ -29,6 +37,7 @@ const AboutUs = () => {
         opacityApi.start({ opacity: 1 , x:0});
         opacityApiReverse.start({ opacity: 0, x: -10 });
       }}
+      onClick={handleClick}
     >
 
       <a.div style={opacitySpringsReverse} className="opacity-0">➔</a.div>
