@@ -94,8 +94,8 @@ export default function Home() {
           <Header />
           <SubHeader />
         </div>
-        <FeaturedWork />
         <FeaturedVideo />
+        <FeaturedWork />
         <Connection className="" />
       {/* <div className="bg-brblue flex items-center justify-center w-full h-screen font-extrabold text-9xl"> this is the footer  </div> */}
         <div className="relative">
