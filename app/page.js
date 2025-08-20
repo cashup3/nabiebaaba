@@ -88,7 +88,7 @@ export default function Home() {
           <ScrollText />
         </div>
       {/* </div> */}
-        <div className="h-auto relative mt-48 sm:mt-56 lg:mt-64" ref={ref}>
+        <div className="h-auto relative mt-96 sm:mt-[28rem] lg:mt-[32rem]" ref={ref}>
           <Header />
           <SubHeader />
         </div>
