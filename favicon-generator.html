@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon Generator - Knob Studio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .canvas-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        canvas {
+            border: 1px solid #ccc;
+            background: white;
+        }
+        .download-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .instructions {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Knob Studio Favicon Generator</h1>
+    
+    <div class="instructions">
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Click "Generate Favicons" to create all the favicon images</li>
+            <li>Right-click on each canvas and "Save image as..." to download</li>
+            <li>Save them with the correct names in your <code>public</code> folder</li>
+            <li>Make sure to save as PNG format</li>
+        </ol>
+    </div>
+
+    <button onclick="generateAllFavicons()">Generate Favicons</button>
+    
+    <div class="canvas-container">
+        <div>
+            <h4>Favicon 16x16</h4>
+            <canvas id="favicon16" width="16" height="16"></canvas>
+        </div>
+        <div>
+            <h4>Favicon 32x32</h4>
+            <canvas id="favicon32" width="32" height="32"></canvas>
+        </div>
+        <div>
+            <h4>Apple Touch Icon 180x180</h4>
+            <canvas id="apple180" width="180" height="180"></canvas>
+        </div>
+        <div>
+            <h4>Android Chrome 192x192</h4>
+            <canvas id="android192" width="192" height="192"></canvas>
+        </div>
+        <div>
+            <h4>Android Chrome 512x512</h4>
+            <canvas id="android512" width="512" height="512"></canvas>
+        </div>
+        <div>
+            <h4>MS Tile 150x150</h4>
+            <canvas id="ms150" width="150" height="150"></canvas>
+        </div>
+    </div>
+
+    <div class="download-section">
+        <h3>Files to save:</h3>
+        <ul>
+            <li><strong>favicon-16x16.png</strong> - Save from 16x16 canvas</li>
+            <li><strong>favicon-32x32.png</strong> - Save from 32x32 canvas</li>
+            <li><strong>apple-touch-icon.png</strong> - Save from 180x180 canvas</li>
+            <li><strong>android-chrome-192x192.png</strong> - Save from 192x192 canvas</li>
+            <li><strong>android-chrome-512x512.png</strong> - Save from 512x512 canvas</li>
+            <li><strong>mstile-150x150.png</strong> - Save from 150x150 canvas</li>
+        </ul>
+    </div>
+
+    <script>
+        function drawFavicon(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, size, size);
+            
+            // Background
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, size, size);
+            
+            // Text
+            ctx.fillStyle = '#ffffff';
+            ctx.font = `bold ${size * 0.6}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('K', size / 2, size / 2);
+            
+            // Optional: Add a subtle border
+            ctx.strokeStyle = '#333333';
+            ctx.lineWidth = Math.max(1, size * 0.02);
+            ctx.strokeRect(0, 0, size, size);
+        }
+
+        function generateAllFavicons() {
+            drawFavicon('favicon16', 16);
+            drawFavicon('favicon32', 32);
+            drawFavicon('apple180', 180);
+            drawFavicon('android192', 192);
+            drawFavicon('android512', 512);
+            drawFavicon('ms150', 150);
+            
+            alert('All favicons generated! Right-click on each canvas to save the images.');
+        }
+
+        // Generate on page load
+        window.onload = function() {
+            generateAllFavicons();
+        };
+    </script>
+</body>
+</html> 
