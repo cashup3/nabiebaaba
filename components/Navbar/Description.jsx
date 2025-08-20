@@ -15,7 +15,7 @@ const Description = () => {
           <Trail open={open}>
             <span>we can give you the world</span>
             <span>but there are other</span>
-            <span>planets too this</span>
+            <span>planets too</span>
           </Trail>
         </div>
       </div>
@@ -26,7 +26,7 @@ const Description = () => {
           <Trail open={open}>
             <span>we can give you the world</span>
             <span>but there are other</span>
-            <span>planets too this</span>
+            <span>planets too</span>
           </Trail>
         </div>
       </div>

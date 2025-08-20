@@ -55,7 +55,7 @@ const FeaturedVideo = () => {
           className="w-full h-auto rounded-2xl sm:rounded-3xl shadow-2xl"
           controls
           preload="none"
-          poster="/textures/thumbnail.jpg"
+          poster="/textures/555.jpg"
           playsInline
           muted
           onClick={handleVideoClick}
