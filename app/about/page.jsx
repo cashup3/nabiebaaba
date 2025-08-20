@@ -2,6 +2,7 @@
 import Navbar from "@/components/Navbar/Navbar";
 import React, { useEffect, useState } from "react";
 import Scene from "@/components/About/Particles/Particles";
+import MovingLogos from "@/components/About/MovingLogos";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const About = () => {
@@ -135,6 +136,9 @@ const About = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Moving Logos Section */}
+        <MovingLogos />
 
         {/* Contact Section */}
         <motion.div 
