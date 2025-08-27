@@ -1,4 +1,4 @@
-import { Inter, Playfair_Display, Space_Grotesk } from 'next/font/google'
+import { Playfair_Display, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 
 export const metadata = {
@@ -26,9 +26,10 @@ export const metadata = {
   viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no',
 }
 
+const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', weight: ['400','700','800'] })
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk', weight: ['300','400','500','600','700'] })
+
 export default function RootLayout({ children }) {
-  const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' })
-  const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' })
   return (
     <html lang="en">
       <head>
