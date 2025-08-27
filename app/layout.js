@@ -1,4 +1,4 @@
-import { Inter } from 'next/font/google'
+import { Inter, Playfair_Display, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 
 export const metadata = {
@@ -27,6 +27,8 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+  const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' })
+  const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' })
   return (
     <html lang="en">
       <head>
@@ -34,7 +36,7 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
-      <body className='font-Aeonik'>{children}</body>
+      <body className={`${playfair.variable} ${spaceGrotesk.variable} font-Aeonik`}>{children}</body>
     </html>
   )
 }
