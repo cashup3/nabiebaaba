@@ -2,184 +2,149 @@
 import Navbar from "@/components/Navbar/Navbar";
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Labs = () => {
+  const labProjects = [
+    {
+      id: 1,
+      title: "AI Experiments",
+      description: "Exploring artificial intelligence and machine learning applications in creative design.",
+      gradient: "from-red-400 to-pink-600",
+      badge: "Experimental",
+      badgeColor: "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200",
+      icon: "AI"
+    },
+    {
+      id: 2,
+      title: "Virtual Reality",
+      description: "Immersive VR experiences and spatial computing experiments.",
+      gradient: "from-blue-400 to-cyan-600",
+      badge: "Prototype",
+      badgeColor: "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200",
+      icon: "VR"
+    },
+    {
+      id: 3,
+      title: "Augmented Reality",
+      description: "AR overlays and mixed reality experiences for mobile devices.",
+      gradient: "from-green-400 to-emerald-600",
+      badge: "In Progress",
+      badgeColor: "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200",
+      icon: "AR"
+    },
+    {
+      id: 4,
+      title: "3D Web Graphics",
+      description: "Advanced 3D rendering and real-time graphics for the web.",
+      gradient: "from-purple-400 to-violet-600",
+      badge: "Research",
+      badgeColor: "bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200",
+      icon: "3D"
+    },
+    {
+      id: 5,
+      title: "Machine Learning",
+      description: "Creative applications of machine learning in design and art.",
+      gradient: "from-orange-400 to-red-600",
+      badge: "Concept",
+      badgeColor: "bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200",
+      icon: "ML"
+    },
+    {
+      id: 6,
+      title: "Internet of Things",
+      description: "Connected devices and smart environment interactions.",
+      gradient: "from-teal-400 to-cyan-600",
+      badge: "Planning",
+      badgeColor: "bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200",
+      icon: "IoT"
+    }
+  ];
+
   return (
-    <div className="w-screen min-h-screen bg-[#F0F1FA] dark:bg-black text-[#060607] dark:text-white overflow-x-hidden relative">
+    <div className="min-h-screen bg-gradient-to-br from-[#F0F1FA] via-white to-[#F0F1FA] dark:from-black dark:via-gray-900 dark:to-black">
       <Navbar />
       
-      {/* Hero Section */}
-      <div className="relative h-screen flex items-center justify-center">
-        <div className="text-center">
-          <motion.h1 
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl sm:text-6xl md:text-8xl lg:text-[12rem] font-extrabold tracking-widest mb-8"
-          >
-            LABS
-          </motion.h1>
-          <motion.p 
+      {/* Main Content */}
+      <div className="pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-12 sm:pb-16 md:pb-20 lg:pb-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          
+          {/* Header */}
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4"
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20"
           >
-            Experimental projects and cutting-edge innovations
-          </motion.p>
-        </div>
-      </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4 md:mb-6 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent leading-tight">
+              LABS
+            </h1>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2">
+              Experimental projects and cutting-edge innovations
+            </p>
+          </motion.div>
 
-      {/* Labs Section */}
-      <div className="relative z-10 bg-[#F0F1FA] dark:bg-black min-h-screen">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-12 xl:px-24 2xl:px-32 py-16 sm:py-20 lg:py-32 xl:py-40 2xl:py-48 max-w-[1400px]">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-12 xl:gap-16 2xl:gap-20">
-            {/* Lab Project 1 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="bg-white dark:bg-gray-800 rounded-3xl xl:rounded-4xl p-8 lg:p-10 xl:p-12 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="w-full h-56 lg:h-64 xl:h-72 bg-gradient-to-br from-red-400 to-pink-600 rounded-2xl xl:rounded-3xl mb-6 lg:mb-8 flex items-center justify-center">
-                <span className="text-white text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold">AI</span>
-              </div>
-              <h3 className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold mb-3 lg:mb-4 xl:mb-6">AI Experiments</h3>
-              <p className="text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-600 dark:text-gray-300 mb-6 lg:mb-8 leading-relaxed">
-                Exploring artificial intelligence and machine learning applications in creative design.
-              </p>
-              <span className="inline-block bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-sm lg:text-base xl:text-lg px-3 py-2 lg:px-4 lg:py-3 xl:px-5 xl:py-4 rounded-full">
-                Experimental
-              </span>
-            </motion.div>
+          {/* Labs Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8 mb-12 sm:mb-16 md:mb-20">
+            {labProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-8 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer"
+              >
+                {/* Icon/Image Area */}
+                <div className={`w-full h-40 sm:h-48 md:h-56 lg:h-64 bg-gradient-to-br ${project.gradient} rounded-lg sm:rounded-xl mb-4 sm:mb-5 md:mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300`}>
+                  <span className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+                    {project.icon}
+                  </span>
+                </div>
 
-            {/* Lab Project 2 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="bg-white dark:bg-gray-800 rounded-3xl xl:rounded-4xl p-8 lg:p-10 xl:p-12 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="w-full h-56 lg:h-64 xl:h-72 bg-gradient-to-br from-blue-400 to-cyan-600 rounded-2xl xl:rounded-3xl mb-6 lg:mb-8 flex items-center justify-center">
-                <span className="text-white text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold">VR</span>
-              </div>
-              <h3 className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold mb-3 lg:mb-4 xl:mb-6">Virtual Reality</h3>
-              <p className="text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-600 dark:text-gray-300 mb-6 lg:mb-8 leading-relaxed">
-                Immersive VR experiences and spatial computing experiments.
-              </p>
-              <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm lg:text-base xl:text-lg px-3 py-2 lg:px-4 lg:py-3 xl:px-5 xl:py-4 rounded-full">
-                Prototype
-              </span>
-            </motion.div>
-
-            {/* Lab Project 3 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-white dark:bg-gray-800 rounded-3xl xl:rounded-4xl p-8 lg:p-10 xl:p-12 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="w-full h-56 lg:h-64 xl:h-72 bg-gradient-to-br from-green-400 to-emerald-600 rounded-2xl xl:rounded-3xl mb-6 lg:mb-8 flex items-center justify-center">
-                <span className="text-white text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold">AR</span>
-              </div>
-              <h3 className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold mb-3 lg:mb-4 xl:mb-6">Augmented Reality</h3>
-              <p className="text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-600 dark:text-gray-300 mb-6 lg:mb-8 leading-relaxed">
-                AR overlays and mixed reality experiences for mobile devices.
-              </p>
-              <span className="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm lg:text-base xl:text-lg px-3 py-2 lg:px-4 lg:py-3 xl:px-5 xl:py-4 rounded-full">
-                In Progress
-              </span>
-            </motion.div>
-
-            {/* Lab Project 4 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl lg:rounded-3xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="w-full h-48 lg:h-56 bg-gradient-to-br from-purple-400 to-violet-600 rounded-xl lg:rounded-2xl mb-4 lg:mb-6 flex items-center justify-center">
-                <span className="text-white text-2xl lg:text-3xl xl:text-4xl font-bold">3D</span>
-              </div>
-              <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold mb-2 lg:mb-3">3D Web Graphics</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mb-4 lg:mb-6 leading-relaxed">
-                Advanced 3D rendering and real-time graphics for the web.
-              </p>
-              <span className="inline-block bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs lg:text-sm px-2 py-1 lg:px-3 lg:py-2 rounded-full">
-                Research
-              </span>
-            </motion.div>
-
-            {/* Lab Project 5 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl lg:rounded-3xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="w-full h-48 lg:h-56 bg-gradient-to-br from-orange-400 to-red-600 rounded-xl lg:rounded-2xl mb-4 lg:mb-6 flex items-center justify-center">
-                <span className="text-white text-2xl lg:text-3xl xl:text-4xl font-bold">ML</span>
-              </div>
-              <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold mb-2 lg:mb-3">Machine Learning</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mb-4 lg:mb-6 leading-relaxed">
-                Creative applications of machine learning in design and art.
-              </p>
-              <span className="inline-block bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 text-xs lg:text-sm px-2 py-1 lg:px-3 lg:py-2 rounded-full">
-                Concept
-              </span>
-            </motion.div>
-
-            {/* Lab Project 6 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl lg:rounded-3xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <div className="w-full h-48 lg:h-56 bg-gradient-to-br from-teal-400 to-cyan-600 rounded-xl lg:rounded-2xl mb-4 lg:mb-6 flex items-center justify-center">
-                <span className="text-white text-2xl lg:text-3xl xl:text-4xl font-bold">IoT</span>
-              </div>
-              <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold mb-2 lg:mb-3">Internet of Things</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mb-4 lg:mb-6 leading-relaxed">
-                Connected devices and smart environment interactions.
-              </p>
-              <span className="inline-block bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200 text-xs lg:text-sm px-2 py-1 lg:px-3 lg:py-2 rounded-full">
-                Planning
-              </span>
-            </motion.div>
+                {/* Content */}
+                <div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 text-gray-900 dark:text-white">
+                    {project.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-5 md:mb-6 leading-relaxed">
+                    {project.description}
+                  </p>
+                  <span className={`inline-block ${project.badgeColor} text-xs sm:text-sm md:text-base px-3 py-1.5 sm:px-4 sm:py-2 rounded-full font-medium`}>
+                    {project.badge}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
           </div>
 
           {/* Call to Action */}
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-center mt-20"
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-center bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl md:rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-lg"
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 md:mb-6 text-gray-900 dark:text-white">
               Want to collaborate?
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
               We're always looking for innovative partners to explore new technologies and push creative boundaries.
             </p>
-            <a 
+            <Link
               href="/contact"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg transition-colors duration-300"
+              className="inline-block px-6 sm:px-8 md:px-10 lg:px-12 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-lg sm:rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 text-sm sm:text-base md:text-lg"
             >
               Get In Touch
-            </a>
+            </Link>
           </motion.div>
+
         </div>
       </div>
     </div>
   );
 };
 
-export default Labs; 
+export default Labs;
