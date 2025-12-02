@@ -19,34 +19,32 @@ export default function Home() {
   const ref = useRef(null);
   return (
     <Suspense fallback={<FullScreenLoader />}>
-      <div className="bg-[#F0F1FA] dark:bg-black h-auto w-screen font-[#060607] dark:text-white flex flex-col px-4 sm:px-6 lg:px-20 overflow-hidden transition-colors duration-300">
+      <div className="bg-[#F0F1FA] dark:bg-black h-auto w-full font-[#060607] dark:text-white flex flex-col px-4 sm:px-6 lg:px-8 xl:px-20 overflow-x-hidden transition-colors duration-300">
         <Navbar />
 
-        <div className="h-screen flex flex-col pb-6 ">
+        <div className="h-screen flex flex-col pb-4 sm:pb-6">
           <Description />
-          {/* <div className="h-full bg-brblue rounded-3xl"></div> */}
-          {/* <Scene className="rounded-xl lg:rounded-3xl" /> */}
-          <Planets className="h-full rounded-xl lg:rounded-3xl" />
+          <Planets className="h-full rounded-lg sm:rounded-xl lg:rounded-3xl" />
           <ScrollText />
         </div>
-      {/* </div> */}
-        <div className="h-auto relative mt-16 sm:mt-20 lg:mt-24" ref={ref}>
+        
+        <div className="h-auto relative mt-12 sm:mt-16 md:mt-20 lg:mt-24" ref={ref}>
           <Header />
           <SubHeader />
         </div>
         <FeaturedVideo />
         <FeaturedWork />
         <Connection className="" />
-      {/* <div className="bg-brblue flex items-center justify-center w-full h-screen font-extrabold text-9xl"> this is the footer  </div> */}
-        <div className="relative">
+        
+        <div className="relative mt-8 sm:mt-12 md:mt-16">
           <Footer />
-          <div className="absolute text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-center w-full h-full top-[10rem] sm:top-[20rem] md:top-[30rem] lg:top-[2rem] xl:top-[1rem] px-4">
+          <div className="absolute text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-center w-full h-full top-[8rem] sm:top-[12rem] md:top-[16rem] lg:top-[2rem] xl:top-[1rem] px-4">
             Powered By Knob Studio
           </div>
         </div>
         
         {/* Social Media Footer */}
-        <div className="w-full bg-black text-white py-12 px-4 sm:px-6 lg:px-20 relative z-10">
+        <div className="w-full bg-black text-white py-8 sm:py-10 md:py-12 px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
               {/* Company Info */}

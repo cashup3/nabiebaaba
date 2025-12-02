@@ -10,8 +10,8 @@ const Description = () => {
   return (
     <>
       {/* Description small screen */}
-      <div className="pt-16 sm:pt-20 pb-4 sm:pb-6 lg:hidden px-2">
-        <div className="text-xl sm:text-2xl md:text-3xl text-[#2B2E3A] font-extrabold leading-tight sm:leading-7">
+      <div className="pt-12 sm:pt-16 md:pt-20 pb-3 sm:pb-4 md:pb-6 lg:hidden px-2 sm:px-4">
+        <div className="text-lg sm:text-xl md:text-2xl text-[#2B2E3A] dark:text-white font-extrabold leading-tight sm:leading-7">
           <Trail open={open}>
             <span>we can give you the world</span>
             <span>but there are other</span>
@@ -21,8 +21,8 @@ const Description = () => {
       </div>
 
       {/*  Description large screen */}
-      <div className="w-full items-start justify-center hidden lg:flex pt-8 lg:pt-11 pb-8 lg:pb-10">
-        <div className="text-2xl xl:text-[2.75rem] w-full lg:w-2/4 text-[#2B2E3A] font-[500] leading-8 lg:leading-10">
+      <div className="w-full items-start justify-center hidden lg:flex pt-6 lg:pt-8 xl:pt-11 pb-6 lg:pb-8 xl:pb-10 px-4 lg:px-8">
+        <div className="text-xl lg:text-2xl xl:text-[2.75rem] w-full lg:w-2/4 text-[#2B2E3A] dark:text-white font-[500] leading-7 lg:leading-9 xl:leading-10">
           <Trail open={open}>
             <span>we can give you the world</span>
             <span>but there are other</span>
