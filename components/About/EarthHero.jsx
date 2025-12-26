@@ -1,11 +1,23 @@
  "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, useTexture } from "@react-three/drei";
+import * as THREE from "three";
 
 const SpinningEarth = () => {
   const meshRef = useRef();
+
+  // Load Earth textures - using reliable public Earth texture sources
+  // Using NASA Blue Marble or similar Earth textures
+  const earthTexture = useTexture("https://raw.githubusercontent.com/mrdoob/three.js/r129/examples/textures/planets/earth_atmos_2048.jpg");
+  const normalMap = useTexture("https://raw.githubusercontent.com/mrdoob/three.js/r129/examples/textures/planets/earth_normal_2048.jpg");
+  const specularMap = useTexture("https://raw.githubusercontent.com/mrdoob/three.js/r129/examples/textures/planets/earth_specular_2048.jpg");
+
+  // Configure texture wrapping
+  earthTexture.wrapS = earthTexture.wrapT = THREE.RepeatWrapping;
+  normalMap.wrapS = normalMap.wrapT = THREE.RepeatWrapping;
+  specularMap.wrapS = specularMap.wrapT = THREE.RepeatWrapping;
 
   useFrame(() => {
     if (meshRef.current) {
@@ -18,7 +30,9 @@ const SpinningEarth = () => {
     <mesh ref={meshRef} castShadow receiveShadow>
       <sphereGeometry args={[1.4, 64, 64]} />
       <meshStandardMaterial
-        color="#ffffff"
+        map={earthTexture}
+        normalMap={normalMap}
+        roughnessMap={specularMap}
         metalness={0.1}
         roughness={0.4}
       />
@@ -27,38 +41,60 @@ const SpinningEarth = () => {
 };
 
 const EarthHero = () => {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+
+    // Check on mount
+    checkDarkMode();
+
+    // Watch for changes
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="w-full bg-black text-white pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 lg:px-12 xl:px-20">
+    <section className="w-full bg-gradient-to-br from-[#F0F1FA] via-white to-[#F0F1FA] dark:from-black dark:via-gray-900 dark:to-black text-gray-900 dark:text-white pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 lg:px-12 xl:px-20">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
         {/* Left: Text */}
         <div className="w-full lg:w-1/2 space-y-4 sm:space-y-6 md:space-y-8">
-          <p className="uppercase tracking-[0.25em] text-xs sm:text-sm text-gray-400">
+          <p className="uppercase tracking-[0.25em] text-xs sm:text-sm text-gray-600 dark:text-gray-400">
             About Knob Studio
           </p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-            Crafting sound
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-gray-900 dark:text-white">
+            15 Years of Experience.
             <br className="hidden sm:block" />
-            for every universe.
+            Endless Creativity.
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-gray-400 max-w-xl">
-            From intimate sessions to full-scale productions, we design sonic
-            experiences that feel as detailed and infinite as the cosmos itself.
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-xl">
+            KNOB is a full-service video production company built on passion, precision, and storytelling.
           </p>
         </div>
 
         {/* Right: 3D Earth */}
         <div className="w-full lg:w-1/2 h-[260px] sm:h-[320px] md:h-[380px] lg:h-[420px] xl:h-[460px]">
-          <div className="w-full h-full rounded-3xl bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden shadow-2xl border border-gray-800/60">
+          <div className="w-full h-full rounded-3xl bg-gradient-to-br from-gray-200 via-white to-gray-200 dark:from-gray-900 dark:via-black dark:to-gray-800 overflow-hidden shadow-2xl border border-gray-300 dark:border-gray-800/60">
             <Canvas camera={{ position: [0, 0, 4], fov: 45 }} shadows>
-              <color attach="background" args={["#000000"]} />
-              <ambientLight intensity={0.3} />
-              <directionalLight position={[3, 4, 5]} intensity={1.2} castShadow />
+              <color attach="background" args={[isDark ? "#000000" : "#ffffff"]} />
+              <ambientLight intensity={0.4} />
+              <directionalLight position={[3, 4, 5]} intensity={1.5} castShadow />
               <directionalLight
                 position={[-4, -3, -2]}
-                intensity={0.4}
+                intensity={0.5}
                 color="#666666"
               />
-              <SpinningEarth />
+              <pointLight position={[5, 5, 5]} intensity={0.3} />
+              <Suspense fallback={null}>
+                <SpinningEarth />
+              </Suspense>
               <OrbitControls enableZoom={false} enablePan={false} autoRotate={false} />
             </Canvas>
           </div>

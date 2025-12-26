@@ -8,62 +8,53 @@ const Labs = () => {
   const labProjects = [
     {
       id: 1,
-      title: "AI Experiments",
-      description: "Exploring artificial intelligence and machine learning applications in creative design.",
-      gradient: "from-red-400 to-pink-600",
-      badge: "Experimental",
-      badgeColor: "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200",
-      icon: "AI"
+      title: "Commercial & Brand Videos",
+      description: "Compelling commercial content and brand storytelling that captivates audiences and drives engagement.",
+      gradient: "from-red-400 to-pink-600 dark:from-gray-800 dark:to-gray-900",
+      badge: "Active",
+      badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
+      icon: "CB"
     },
     {
       id: 2,
-      title: "Virtual Reality",
-      description: "Immersive VR experiences and spatial computing experiments.",
-      gradient: "from-blue-400 to-cyan-600",
-      badge: "Prototype",
-      badgeColor: "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200",
-      icon: "VR"
+      title: "Corporate & Promotional Films",
+      description: "Professional corporate videos and promotional content that elevate your brand and communicate your message effectively.",
+      gradient: "from-blue-400 to-cyan-600 dark:from-gray-700 dark:to-gray-800",
+      badge: "Active",
+      badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
+      icon: "CP"
     },
     {
       id: 3,
-      title: "Augmented Reality",
-      description: "AR overlays and mixed reality experiences for mobile devices.",
-      gradient: "from-green-400 to-emerald-600",
-      badge: "In Progress",
-      badgeColor: "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200",
-      icon: "AR"
+      title: "Music Videos",
+      description: "Creative music video production that brings songs to life with stunning visuals and artistic direction.",
+      gradient: "from-green-400 to-emerald-600 dark:from-gray-900 dark:to-black",
+      badge: "Active",
+      badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
+      icon: "MV"
     },
     {
       id: 4,
-      title: "3D Web Graphics",
-      description: "Advanced 3D rendering and real-time graphics for the web.",
-      gradient: "from-purple-400 to-violet-600",
-      badge: "Research",
-      badgeColor: "bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200",
-      icon: "3D"
+      title: "Social Media Content",
+      description: "Engaging social media videos optimized for platforms like Instagram, TikTok, YouTube, and more.",
+      gradient: "from-purple-400 to-violet-600 dark:from-black dark:to-gray-900",
+      badge: "Active",
+      badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
+      icon: "SM"
     },
     {
       id: 5,
-      title: "Machine Learning",
-      description: "Creative applications of machine learning in design and art.",
-      gradient: "from-orange-400 to-red-600",
-      badge: "Concept",
-      badgeColor: "bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200",
-      icon: "ML"
-    },
-    {
-      id: 6,
-      title: "Internet of Things",
-      description: "Connected devices and smart environment interactions.",
-      gradient: "from-teal-400 to-cyan-600",
-      badge: "Planning",
-      badgeColor: "bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200",
-      icon: "IoT"
+      title: "Post-Production",
+      description: "Professional editing, color grading, motion graphics, and visual effects to polish your content to perfection.",
+      gradient: "from-orange-400 to-red-600 dark:from-gray-800 dark:to-black",
+      badge: "Active",
+      badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
+      icon: "PP"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F0F1FA] via-white to-[#F0F1FA] dark:from-black dark:via-gray-900 dark:to-black">
+    <div className="min-h-screen bg-gradient-to-br from-[#F0F1FA] via-white to-[#F0F1FA] dark:from-black dark:via-gray-900 dark:to-black text-gray-900 dark:text-white">
       <Navbar />
       
       {/* Main Content */}
@@ -81,7 +72,7 @@ const Labs = () => {
               LABS
             </h1>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2">
-              Experimental projects and cutting-edge innovations
+              Our video production services and creative capabilities
             </p>
           </motion.div>
 
@@ -94,7 +85,7 @@ const Labs = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-8 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer"
+                className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg sm:rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-8 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300 group cursor-pointer shadow-md hover:shadow-xl dark:shadow-none"
               >
                 {/* Icon/Image Area */}
                 <div className={`w-full h-40 sm:h-48 md:h-56 lg:h-64 bg-gradient-to-br ${project.gradient} rounded-lg sm:rounded-xl mb-4 sm:mb-5 md:mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300`}>
@@ -108,7 +99,7 @@ const Labs = () => {
                   <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 text-gray-900 dark:text-white">
                     {project.title}
                   </h3>
-                  <p className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-5 md:mb-6 leading-relaxed">
+                  <p className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 mb-4 sm:mb-5 md:mb-6 leading-relaxed">
                     {project.description}
                   </p>
                   <span className={`inline-block ${project.badgeColor} text-xs sm:text-sm md:text-base px-3 py-1.5 sm:px-4 sm:py-2 rounded-full font-medium`}>
@@ -125,17 +116,17 @@ const Labs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-center bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl md:rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-lg"
+            className="text-center bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg sm:rounded-xl md:rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-lg dark:shadow-none"
           >
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 md:mb-6 text-gray-900 dark:text-white">
-              Want to collaborate?
+              Ready to start your project?
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
-              We're always looking for innovative partners to explore new technologies and push creative boundaries.
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
+              Let's bring your vision to life with professional video production that makes an impact.
             </p>
             <Link
               href="/contact"
-              className="inline-block px-6 sm:px-8 md:px-10 lg:px-12 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-lg sm:rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 text-sm sm:text-base md:text-lg"
+              className="inline-block px-6 sm:px-8 md:px-10 lg:px-12 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 dark:from-white dark:to-gray-100 dark:hover:from-gray-100 dark:hover:to-gray-200 text-white dark:text-black font-semibold rounded-lg sm:rounded-xl transition-all duration-300 shadow-md hover:shadow-lg dark:shadow-none active:scale-95 text-sm sm:text-base md:text-lg"
             >
               Get In Touch
             </Link>
