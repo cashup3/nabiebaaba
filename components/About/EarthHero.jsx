@@ -1,6 +1,6 @@
  "use client";
 
-import React, { useRef, useEffect, useState, Suspense } from "react";
+import React, { useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useTexture } from "@react-three/drei";
 import * as THREE from "three";
@@ -41,25 +41,6 @@ const SpinningEarth = () => {
 };
 
 const EarthHero = () => {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-
-    // Check on mount
-    checkDarkMode();
-
-    // Watch for changes
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class']
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <section className="w-full bg-gradient-to-br from-[#F0F1FA] via-white to-[#F0F1FA] dark:from-black dark:via-gray-900 dark:to-black text-gray-900 dark:text-white pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 lg:px-12 xl:px-20">
@@ -81,9 +62,8 @@ const EarthHero = () => {
 
         {/* Right: 3D Earth */}
         <div className="w-full lg:w-1/2 h-[260px] sm:h-[320px] md:h-[380px] lg:h-[420px] xl:h-[460px]">
-          <div className="w-full h-full rounded-3xl bg-gradient-to-br from-gray-200 via-white to-gray-200 dark:from-gray-900 dark:via-black dark:to-gray-800 overflow-hidden shadow-2xl border border-gray-300 dark:border-gray-800/60">
-            <Canvas camera={{ position: [0, 0, 4], fov: 45 }} shadows>
-              <color attach="background" args={[isDark ? "#000000" : "#ffffff"]} />
+          <div className="w-full h-full rounded-3xl overflow-hidden">
+            <Canvas camera={{ position: [0, 0, 4], fov: 45 }} gl={{ alpha: true }} shadows>
               <ambientLight intensity={0.4} />
               <directionalLight position={[3, 4, 5]} intensity={1.5} castShadow />
               <directionalLight

@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const Labs = () => {
+const Services = () => {
   const labProjects = [
     {
       id: 1,
@@ -50,6 +50,60 @@ const Labs = () => {
       badge: "Active",
       badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
       icon: "PP"
+    },
+    {
+      id: 6,
+      title: "Web Design",
+      description: "Modern, responsive web design that creates engaging digital experiences and drives user engagement.",
+      gradient: "from-indigo-400 to-blue-600 dark:from-gray-700 dark:to-gray-800",
+      badge: "Active",
+      badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
+      icon: "WD"
+    },
+    {
+      id: 7,
+      title: "DSPs Services",
+      description: "Music distribution and promotion services across digital streaming platforms to maximize your reach and visibility.",
+      gradient: "from-teal-400 to-cyan-600 dark:from-gray-800 dark:to-gray-900",
+      badge: "Active",
+      badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
+      icon: "DS"
+    },
+    {
+      id: 8,
+      title: "Advertising",
+      description: "Strategic advertising campaigns that connect with your target audience and drive measurable results.",
+      gradient: "from-yellow-400 to-orange-600 dark:from-gray-900 dark:to-black",
+      badge: "Active",
+      badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
+      icon: "AD"
+    },
+    {
+      id: 9,
+      title: "Public Relations",
+      description: "Comprehensive PR services to build your brand reputation, manage media relations, and enhance your public image.",
+      gradient: "from-pink-400 to-rose-600 dark:from-gray-800 dark:to-gray-900",
+      badge: "Active",
+      badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
+      icon: "PR"
+    },
+    {
+      id: 10,
+      title: "Photoshoots",
+      description: "Professional photography services for portraits, product shots, events, and creative campaigns that capture your vision.",
+      gradient: "from-violet-400 to-purple-600 dark:from-black dark:to-gray-900",
+      badge: "Active",
+      badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
+      icon: "PS"
+    },
+    {
+      id: 11,
+      title: "Creative Direction",
+      description: "Strategic creative direction that shapes your brand identity, visual language, and overall artistic vision across all mediums.",
+      gradient: "from-amber-400 to-yellow-600 dark:from-gray-900 dark:to-black",
+      badge: "Active",
+      badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
+      icon: "CD"
     }
   ];
 
@@ -69,14 +123,14 @@ const Labs = () => {
             className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20"
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4 md:mb-6 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent leading-tight">
-              LABS
+              SERVICES
             </h1>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2">
-              Our video production services and creative capabilities
+              Our comprehensive creative services and production capabilities
             </p>
           </motion.div>
 
-          {/* Labs Grid */}
+          {/* Services Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8 mb-12 sm:mb-16 md:mb-20">
             {labProjects.map((project, index) => (
               <motion.div
@@ -138,4 +192,5 @@ const Labs = () => {
   );
 };
 
-export default Labs;
+export default Services;
+

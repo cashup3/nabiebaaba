@@ -104,11 +104,11 @@ const Menu = ({ open, onOutsideClick }) => {
             </form>
           </a.div>
 
-          {/* Labs */}
+          {/* Services */}
           <a.div className="bg-black text-white p-6 lg:p-8 rounded-xl" style={contents}>
-            <Link href="/labs">
+            <Link href="/services">
                               <div className="flex justify-between text-2xl lg:text-3xl">
-                <div>LABS</div>
+                <div>SERVICES</div>
                 <svg
                   width="30px"
                   height="30px"
