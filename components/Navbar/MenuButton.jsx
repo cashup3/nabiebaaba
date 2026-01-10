@@ -47,14 +47,18 @@ const MenuButton = () => {
     });
   };
 
-  // Close menu when route changes
+  // Close menu when route changes (only on actual pathname change, not on mount)
+  const prevPathnameRef = useRef(pathname);
   useEffect(() => {
-    if (isOpen) {
+    // Only close if pathname actually changed (not just on initial mount)
+    if (prevPathnameRef.current !== pathname && prevPathnameRef.current !== null && isOpen) {
       handleClick(false);
       open(false);
       dotsApi.start({ transform: `rotate(0deg)` });
     }
-  }, [pathname]);
+    prevPathnameRef.current = pathname;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname]); // Only depend on pathname to avoid unnecessary re-renders
 
   const [bgColor, setBgColor] = useState("#E3E5EE");
 
@@ -84,7 +88,8 @@ const MenuButton = () => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         style={{ backgroundColor: bgColor }}
-        onClick={() => {
+        onClick={(e) => {
+          e.stopPropagation(); // Prevent event from bubbling to Menu's outside click handler
           const newState = !isOpen;
           open(newState);
           handleClick(newState);

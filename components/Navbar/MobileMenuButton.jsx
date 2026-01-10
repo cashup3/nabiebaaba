@@ -37,7 +37,8 @@ const MobileMenuButton = () => {
     line3Api.start({ transform: `translateY(-8px) rotate(-45deg)` });
   };
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e?.stopPropagation(); // Prevent event from bubbling
     if (isOpen) {
       closeMenu();
       open(false);

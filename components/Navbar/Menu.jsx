@@ -1,38 +1,51 @@
 import { useSpring, a } from "@react-spring/web";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import React, { useEffect, useRef, useState, useCallback } from "react";
 
 const Menu = ({ open, onOutsideClick, onLinkClick }) => {
   const ref = useRef();
-  const pathname = usePathname();
   const timeoutRef = useRef(null);
   
+  const justOpenedRef = useRef(false);
+  
   const handleChildClick = useCallback((event) => {
+    // Ignore clicks immediately after opening (to avoid closing on the opening click)
+    if (justOpenedRef.current) {
+      return;
+    }
     if (ref.current && !ref.current.contains(event.target)) {
       onOutsideClick(event);
     }
   }, [onOutsideClick]);
 
-  // Close menu when route changes
-  useEffect(() => {
-    if (open && onLinkClick) {
-      onLinkClick();
-    }
-  }, [pathname, open, onLinkClick]);
-
   useEffect(() => {
     if (open) {
+      // Small delay to ignore the click that opened the menu
+      justOpenedRef.current = true;
+      const timer = setTimeout(() => {
+        justOpenedRef.current = false;
+      }, 100);
+      
       document.addEventListener("click", handleChildClick);
+      
+      return () => {
+        clearTimeout(timer);
+        document.removeEventListener("click", handleChildClick);
+        // Cleanup timeout if component unmounts
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+        }
+      };
+    } else {
+      justOpenedRef.current = false;
+      return () => {
+        // Cleanup timeout if component unmounts
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+        }
+      };
     }
-    return () => {
-      document.removeEventListener("click", handleChildClick);
-      // Cleanup timeout if component unmounts
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
   }, [open, handleChildClick]);
 
   const [contents, contentsApi] = useSpring(() => ({
@@ -43,7 +56,7 @@ const Menu = ({ open, onOutsideClick, onLinkClick }) => {
     from: { y: 100, opacity: 0, transform: "rotate(-20deg)" },
   }));
   
-  const [hidden, setHidden] = useState(true);
+  const [hidden, setHidden] = useState(!open);
   
   useEffect(() => {
     // Cleanup previous timeout
