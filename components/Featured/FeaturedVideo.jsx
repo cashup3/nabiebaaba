@@ -8,7 +8,9 @@ const FeaturedVideo = () => {
 
   // Handle video errors
   const handleVideoError = () => {
-    console.error("Video failed to load or play");
+    if (process.env.NODE_ENV === 'development') {
+      console.error("Video failed to load or play");
+    }
     setVideoError(true);
   };
 

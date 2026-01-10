@@ -1,10 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
 const MovingLogos = () => {
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  
   const clients = [
     { name: "Canada Film Equipment", logo: "/logos/canada-film-equipment.png" },
     { name: "Ontario Camera", logo: "/logos/ontario-camera.png" },
@@ -23,8 +26,28 @@ const MovingLogos = () => {
   const row1 = [...clients, ...clients];
   const row2 = [...clients, ...clients];
 
+  // Intersection Observer to pause animations when not visible
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1, rootMargin: "100px" }
+    );
+    
+    observer.observe(sectionRef.current);
+    
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className="w-full bg-black py-20 sm:py-24 lg:py-32 overflow-hidden">
+    <section ref={sectionRef} className="w-full bg-black py-20 sm:py-24 lg:py-32 overflow-hidden">
       {/* Title */}
         <motion.div 
         initial={{ opacity: 0, y: 20 }}
@@ -46,11 +69,11 @@ const MovingLogos = () => {
         <div className="flex mb-6 sm:mb-8">
           <motion.div 
             className="flex gap-6 sm:gap-8"
-            animate={{ x: [0, -1920] }}
+            animate={isVisible ? { x: [0, -1920] } : { x: 0 }}
             transition={{ 
               x: {
               duration: 30, 
-              repeat: Infinity, 
+              repeat: isVisible ? Infinity : 0, 
                 ease: "linear",
               },
             }}
@@ -66,6 +89,7 @@ const MovingLogos = () => {
                   width={160}
                   height={160}
                     className="w-full h-full object-contain"
+                    loading="lazy"
                 />
               </div>
             ))}
@@ -76,11 +100,11 @@ const MovingLogos = () => {
         <div className="flex">
           <motion.div 
             className="flex gap-6 sm:gap-8"
-            animate={{ x: [-1920, 0] }}
+            animate={isVisible ? { x: [-1920, 0] } : { x: -1920 }}
             transition={{ 
               x: {
                 duration: 35,
-              repeat: Infinity, 
+              repeat: isVisible ? Infinity : 0, 
                 ease: "linear",
               },
             }}
@@ -96,6 +120,7 @@ const MovingLogos = () => {
                   width={160}
                   height={160}
                   className="w-full h-full object-contain invert"
+                  loading="lazy"
                 />
               </div>
             ))}
@@ -125,4 +150,4 @@ const MovingLogos = () => {
   );
 };
 
-export default MovingLogos; 
+export default React.memo(MovingLogos); 

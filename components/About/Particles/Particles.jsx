@@ -25,8 +25,9 @@ const Particles = () => {
   // }, []);
   const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
   useEffect(() => {
-    console.log(sphereGeometry)
-    ref.current.geometry = sphereGeometry
+    if (ref.current) {
+      ref.current.geometry = sphereGeometry;
+    }
   }, [])
 
   // useFrame(() => {

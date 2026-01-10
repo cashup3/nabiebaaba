@@ -48,13 +48,24 @@ const Astronaut = () => {
       return loader.load(texturePath);
     };
 
+    let retryCount = 0;
+    const MAX_RETRIES = 20; // Maximum 2 seconds of retries (20 * 100ms)
+    const retryTimeoutRef = { current: null };
+    let isMounted = true;
+
     const fetchBuffers = async () => {
-      // Wait for refs to be available
+      // Wait for refs to be available with retry limit
       if (!astronaut_wearpack.current || !astronaut_body.current || 
           !astronaut_glove_shoes.current || !astronaut_helmet.current || 
           !astronaut_helmet_glass.current) {
-        console.warn('Mesh refs not ready yet, retrying...');
-        setTimeout(() => fetchBuffers(), 100);
+        retryCount++;
+        if (retryCount < MAX_RETRIES && isMounted) {
+          retryTimeoutRef.current = setTimeout(() => {
+            if (isMounted) fetchBuffers();
+          }, 100);
+        } else if (process.env.NODE_ENV === 'development') {
+          console.warn('Mesh refs not ready after max retries');
+        }
         return;
       }
 
@@ -74,10 +85,12 @@ const Astronaut = () => {
       );
 
         // Check refs again after async operations
-        if (!astronaut_wearpack.current || !astronaut_body.current || 
+        if (!isMounted || !astronaut_wearpack.current || !astronaut_body.current || 
             !astronaut_glove_shoes.current || !astronaut_helmet.current || 
             !astronaut_helmet_glass.current) {
-          console.warn('Mesh refs no longer available');
+          if (process.env.NODE_ENV === 'development' && isMounted) {
+            console.warn('Mesh refs no longer available');
+          }
           return;
         }
 
@@ -122,16 +135,26 @@ const Astronaut = () => {
       astronaut_helmet_glass.current.geometry = meshArray[4].geometry.clone();
         }
       } catch (error) {
-        console.error('Error loading astronaut assets:', error);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error loading astronaut assets:', error);
+        }
       }
     };
 
     // Start loading after a small delay to ensure refs are attached
     const timer = setTimeout(() => {
-    fetchBuffers();
+      if (isMounted) {
+        fetchBuffers();
+      }
     }, 100);
 
-    return () => clearTimeout(timer);
+    return () => {
+      isMounted = false;
+      clearTimeout(timer);
+      if (retryTimeoutRef.current) {
+        clearTimeout(retryTimeoutRef.current);
+      }
+    };
   }, []);
 
   useFrame(()=>{

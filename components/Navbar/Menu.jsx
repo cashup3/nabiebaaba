@@ -113,7 +113,7 @@ const Menu = ({ open, onOutsideClick, onLinkClick }) => {
               <Link href={"/about"} onClick={onLinkClick} className="hover:opacity-70 transition-opacity">ABOUT US</Link>
             </div>
             <div className="py-3">
-              <Link href="/services" onClick={onLinkClick} className="hover:opacity-70 transition-opacity">Services</Link>
+              <Link href="/services" onClick={onLinkClick} className="hover:opacity-70 transition-opacity">SERVICES</Link>
             </div>
             <div className="pt-3">
               <Link href="/contact" onClick={onLinkClick} className="hover:opacity-70 transition-opacity">CONTACT</Link>
@@ -129,7 +129,10 @@ const Menu = ({ open, onOutsideClick, onLinkClick }) => {
               Subscribe to our newsletter
             </div>
             <form
-              onSubmit={() => console.log("submitted thank you")}
+              onSubmit={(e) => {
+                e.preventDefault();
+                // Form submission handled here
+              }}
               className="flex justify-between bg-[#F0F1FA] dark:bg-gray-700 p-3 lg:p-4 rounded-xl mt-6 text-[#BEBFC7] dark:text-gray-300 text-lg lg:text-xl"
             >
               <label className="">

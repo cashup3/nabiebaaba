@@ -29,20 +29,27 @@ function Navbar() {
     set(true);
   }, []);
 
-  // Hide logo when scrolling down on home page
+  // Hide logo when scrolling down on home page (throttled for performance)
   useEffect(() => {
     if (!isHomePage) {
       setShowLogo(false);
       return;
     }
 
+    let ticking = false;
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      // Hide logo after scrolling past 100px
-      setShowLogo(scrollY < 100);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          // Hide logo after scrolling past 100px
+          setShowLogo(scrollY < 100);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isHomePage]);
 
@@ -53,7 +60,7 @@ function Navbar() {
         <div className="flex items-center justify-between w-full font-extrabold pb-2">
           {showLogo && isHomePage && (
           <div className="tracking-wider font-extrabold text-2xl sm:text-3xl cursor-pointer">
-            <Link href="/"><Image src={'/smatik_logo.png'} width={'60'} height={'60'} className="sm:w-[80px] sm:h-[80px] dark:invert dark:brightness-0 dark:contrast-200"/></Link>
+            <Link href="/"><Image src={'/smatik_logo.png'} width={60} height={60} priority alt="KNOB Studio Logo" className="sm:w-[80px] sm:h-[80px] dark:invert dark:brightness-0 dark:contrast-200"/></Link>
           </div>
           )}
           {!showLogo && isHomePage && <div></div>}
@@ -70,7 +77,7 @@ function Navbar() {
         <div className="items-start justify-between hidden lg:flex pt-10 lg:pt-14 pb-8 lg:pb-10">
           {showLogo && isHomePage && (
           <div className="tracking-wider font-AeonikMedium text-3xl lg:text-4xl">
-            <Link href="/"><Image src={'/smatik_logo.png'} width={'120'} height={'60'} className="lg:w-[140px] lg:h-[70px] dark:invert dark:brightness-0 dark:contrast-200"/></Link>
+            <Link href="/"><Image src={'/smatik_logo.png'} width={120} height={60} priority alt="KNOB Studio Logo" className="lg:w-[140px] lg:h-[70px] dark:invert dark:brightness-0 dark:contrast-200"/></Link>
           </div>
           )}
           {!showLogo && isHomePage && <div></div>}

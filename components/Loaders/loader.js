@@ -87,7 +87,10 @@ function onBufferLoad(buffer) {
 export const fetchData = async (
   path,
   onProgress = (percentage) => {
-    console.log(`${percentage}%`);
+    // Progress callback - can be used for loading indicators
+    if (process.env.NODE_ENV === 'development' && percentage % 25 === 0) {
+      console.log(`Loading ${path}: ${percentage.toFixed(0)}%`);
+    }
   },
 ) => {
   const response = await fetch(path);
