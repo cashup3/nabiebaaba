@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { a, useSpring } from "@react-spring/web";
 import Menu from "./Menu";
 
 const MobileMenuButton = () => {
   const [isOpen, open] = useState(false);
+  const pathname = usePathname();
 
   const [hamburger, hamburgerApi] = useSpring(() => ({
     from: { transform: `rotate(0deg)` },
@@ -21,44 +23,65 @@ const MobileMenuButton = () => {
     from: { transform: `translateY(0px) rotate(0deg)` },
   }));
 
+  const closeMenu = () => {
+    hamburgerApi.start({ transform: `rotate(0deg)` });
+    line1Api.start({ transform: `translateY(0px) rotate(0deg)` });
+    line2Api.start({ opacity: 1 });
+    line3Api.start({ transform: `translateY(0px) rotate(0deg)` });
+  };
+
+  const openMenu = () => {
+    hamburgerApi.start({ transform: `rotate(180deg)` });
+    line1Api.start({ transform: `translateY(8px) rotate(45deg)` });
+    line2Api.start({ opacity: 0 });
+    line3Api.start({ transform: `translateY(-8px) rotate(-45deg)` });
+  };
+
   const handleClick = () => {
     if (isOpen) {
-      // Close animation
-      hamburgerApi.start({ transform: `rotate(0deg)` });
-      line1Api.start({ transform: `translateY(0px) rotate(0deg)` });
-      line2Api.start({ opacity: 1 });
-      line3Api.start({ transform: `translateY(0px) rotate(0deg)` });
+      closeMenu();
+      open(false);
     } else {
-      // Open animation
-      hamburgerApi.start({ transform: `rotate(180deg)` });
-      line1Api.start({ transform: `translateY(8px) rotate(45deg)` });
-      line2Api.start({ opacity: 0 });
-      line3Api.start({ transform: `translateY(-8px) rotate(-45deg)` });
+      openMenu();
+      open(true);
     }
-    open(!isOpen);
   };
+
+  // Close menu when route changes
+  useEffect(() => {
+    if (isOpen) {
+      closeMenu();
+      open(false);
+    }
+  }, [pathname]);
 
   const ref = useRef();
   const handleWindowClick = (event) => {
-    if (ref.current && !ref.current.contains(event.target)) {
+    if (ref.current && !ref.current.contains(event.target) && isOpen) {
+      closeMenu();
       open(false);
-      hamburgerApi.start({ transform: `rotate(0deg)` });
-      line1Api.start({ transform: `translateY(0px) rotate(0deg)` });
-      line2Api.start({ opacity: 1 });
-      line3Api.start({ transform: `translateY(0px) rotate(0deg)` });
+    }
+  };
+
+  const handleLinkClick = () => {
+    if (isOpen) {
+      closeMenu();
+      open(false);
     }
   };
 
   useEffect(() => {
-    document.addEventListener("click", handleWindowClick);
+    if (isOpen) {
+      document.addEventListener("click", handleWindowClick);
+    }
     return () => {
       document.removeEventListener("click", handleWindowClick);
     };
-  }, []);
+  }, [isOpen]);
 
   return (
     <>
-      <Menu open={isOpen} onOutsideClick={handleWindowClick} />
+      <Menu open={isOpen} onOutsideClick={handleWindowClick} onLinkClick={handleLinkClick} />
       <div
         className="flex items-center justify-center w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 cursor-pointer hover:bg-white hover:scale-105 transition-all duration-200"
         ref={ref}

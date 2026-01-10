@@ -1,22 +1,39 @@
 import { useSpring, a } from "@react-spring/web";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 
-const Menu = ({ open, onOutsideClick }) => {
+const Menu = ({ open, onOutsideClick, onLinkClick }) => {
   const ref = useRef();
-  const handleChildClick = (event) => {
+  const pathname = usePathname();
+  const timeoutRef = useRef(null);
+  
+  const handleChildClick = useCallback((event) => {
     if (ref.current && !ref.current.contains(event.target)) {
       onOutsideClick(event);
     }
-  };
+  }, [onOutsideClick]);
+
+  // Close menu when route changes
+  useEffect(() => {
+    if (open && onLinkClick) {
+      onLinkClick();
+    }
+  }, [pathname, open, onLinkClick]);
 
   useEffect(() => {
-    document.addEventListener("click", handleChildClick);
+    if (open) {
+      document.addEventListener("click", handleChildClick);
+    }
     return () => {
       document.removeEventListener("click", handleChildClick);
+      // Cleanup timeout if component unmounts
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
     };
-  }, []);
+  }, [open, handleChildClick]);
 
   const [contents, contentsApi] = useSpring(() => ({
     from: { y: 100, opacity: 0, transform: "rotate(20deg)" },
@@ -25,15 +42,23 @@ const Menu = ({ open, onOutsideClick }) => {
   const [news, newsApi] = useSpring(() => ({
     from: { y: 100, opacity: 0, transform: "rotate(-20deg)" },
   }));
+  
   const [hidden, setHidden] = useState(true);
+  
   useEffect(() => {
+    // Cleanup previous timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
 
-    if(open == false){
-      setTimeout(() => {
-        setHidden(false);}
-      , 500);
-    }else{
-      setHidden(true)
+    if (open === false) {
+      // Hide menu after animation completes (500ms)
+      timeoutRef.current = setTimeout(() => {
+        setHidden(true);
+      }, 500);
+    } else {
+      // Show menu immediately when opening
+      setHidden(false);
     }
 
     contentsApi.start({
@@ -48,11 +73,16 @@ const Menu = ({ open, onOutsideClick }) => {
       transform: open ? `rotate(0deg)` : `rotate(-20deg)`,
     });
 
-  }, [open]);
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [open, contentsApi, newsApi]);
 
   return (
     <>
-      {hidden && (
+      {!hidden && (
         <div
           className="absolute top-[4rem] right-0 w-[calc(100vw-2rem)] lg:w-[20rem] max-w-[20rem]"
           ref={ref}
@@ -63,14 +93,17 @@ const Menu = ({ open, onOutsideClick }) => {
             style={contents}
           >
             <div className="flex justify-between pb-3">
-              <div>HOME</div>
+              <Link href="/" onClick={onLinkClick} className="hover:opacity-70 transition-opacity">HOME</Link>
               <div>•</div>
             </div>
             <div className="py-3">
-              <Link href={"/about"}>ABOUT US</Link>
+              <Link href={"/about"} onClick={onLinkClick} className="hover:opacity-70 transition-opacity">ABOUT US</Link>
+            </div>
+            <div className="py-3">
+              <Link href="/services" onClick={onLinkClick} className="hover:opacity-70 transition-opacity">Services</Link>
             </div>
             <div className="pt-3">
-              <Link href="/contact">CONTACT</Link>
+              <Link href="/contact" onClick={onLinkClick} className="hover:opacity-70 transition-opacity">CONTACT</Link>
             </div>
           </a.div>
 
@@ -102,31 +135,6 @@ const Menu = ({ open, onOutsideClick }) => {
                 />
               </button>
             </form>
-          </a.div>
-
-          {/* Services */}
-          <a.div className="bg-black text-white p-6 lg:p-8 rounded-xl" style={contents}>
-            <Link href="/services">
-                              <div className="flex justify-between text-2xl lg:text-3xl">
-                <div>SERVICES</div>
-                <svg
-                  width="30px"
-                  height="30px"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                >
-                  <path
-                    stroke="white"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="m19 12-6-6m6 6-6 6m6-6H5"
-                    transform="rotate(-45, 12, 12)"
-                  />
-                </svg>
-              </div>
-            </Link>
           </a.div>
         </div>
       )}

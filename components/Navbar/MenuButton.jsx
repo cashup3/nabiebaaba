@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { a, useSpring } from "@react-spring/web";
 import Menu from "./Menu";
 
 const MenuButton = () => {
   const [isOpen, open] = useState(false);
+  const pathname = usePathname();
   const offset = 10;
 
   const [dots, dotsApi] = useSpring(() => ({
@@ -29,35 +31,53 @@ const MenuButton = () => {
     from: { y: offset, opacity: 0 },
   }));
 
-  const handleClick = () => {
-    // setBgColor(isOpen ? "white" : "#E3E5EE");
+  const handleClick = (newOpenState) => {
+    const shouldBeOpen = newOpenState !== undefined ? newOpenState : !isOpen;
+    // setBgColor(shouldBeOpen ? "white" : "#E3E5EE");
     menuApi.stop();
     closeApi.stop();
     menuApi.start({
-      y: isOpen ? -offset : offset,
-      opacity: isOpen ? 0 : 1,
+      y: shouldBeOpen ? offset : -offset,
+      opacity: shouldBeOpen ? 1 : 0,
     });
 
     closeApi.start({
-      y: isOpen ? -offset : offset,
-      opacity: isOpen ? 1 : 0,
+      y: shouldBeOpen ? -offset : offset,
+      opacity: shouldBeOpen ? 1 : 0,
     });
   };
+
+  // Close menu when route changes
+  useEffect(() => {
+    if (isOpen) {
+      handleClick(false);
+      open(false);
+      dotsApi.start({ transform: `rotate(0deg)` });
+    }
+  }, [pathname]);
 
   const [bgColor, setBgColor] = useState("#E3E5EE");
 
   const ref = useRef();
   const handleWindowClick = (event) => {
     if (ref.current && !ref.current.contains(event.target)) {
+      handleClick(false);
       open(false);
       dotsApi.start({ transform: `rotate(0deg)` });
-      handleClick();
+    }
+  };
+
+  const handleLinkClick = () => {
+    if (isOpen) {
+      handleClick(false);
+      open(false);
+      dotsApi.start({ transform: `rotate(0deg)` });
     }
   };
 
   return (
     <>
-      <Menu open={isOpen} onOutsideClick={handleWindowClick} />
+      <Menu open={isOpen} onOutsideClick={handleWindowClick} onLinkClick={handleLinkClick} />
       <div
         className="nav_btn_lg py-6 flex items-center justify-center cursor-pointer"
         ref={ref}
@@ -65,8 +85,9 @@ const MenuButton = () => {
         onMouseLeave={handleMouseLeave}
         style={{ backgroundColor: bgColor }}
         onClick={() => {
-          open(!isOpen);
-          handleClick();
+          const newState = !isOpen;
+          open(newState);
+          handleClick(newState);
         }}
       >
         <div className="flex flex-col h-6 items-center justify-center">

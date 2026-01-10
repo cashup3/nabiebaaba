@@ -17,7 +17,7 @@ const About = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20">
           {/* About + What We Offer */}
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 sm:gap-14 lg:gap-16 xl:gap-20">
-            <motion.div
+          <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -38,7 +38,7 @@ const About = () => {
               </p>
             </motion.div>
 
-            <motion.div
+            <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -72,7 +72,7 @@ const About = () => {
           </div>
 
           {/* Stats Section */}
-          <motion.div
+          <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -116,9 +116,9 @@ const About = () => {
       </section>
 
       {/* Recent & Previous Clients */}
-      <MovingLogos />
+        <MovingLogos />
 
-      {/* Contact Section */}
+        {/* Contact Section */}
       <section className="bg-gray-100 dark:bg-[#050505] border-t border-gray-200 dark:border-gray-800/60 py-16 sm:py-20 lg:py-24">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
           <motion.h2
@@ -140,26 +140,26 @@ const About = () => {
             Let&apos;s create something unforgettable together. From concept to final cut,
             we&apos;re with you at every step of your production journey.
           </motion.p>
-          <motion.div
+        <motion.div 
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.25 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
           >
-            <a
-              href="mailto:info@knobstud.com"
+              <a 
+                href="mailto:info@knobstud.com"
               className="bg-gray-900 dark:bg-white text-white dark:text-black px-8 sm:px-10 md:px-12 py-3 sm:py-3.5 md:py-4 rounded-xl font-semibold text-sm sm:text-base md:text-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors duration-300"
-            >
+              >
               Start Your Project
-            </a>
-            <a
+              </a>
+              <a 
               href="tel:+15149293511"
               className="border border-gray-900 dark:border-white text-gray-900 dark:text-white px-8 sm:px-10 md:px-12 py-3 sm:py-3.5 md:py-4 rounded-xl font-semibold text-sm sm:text-base md:text-lg hover:bg-gray-900 dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors duration-300"
-            >
-              Call Us Now
-            </a>
-          </motion.div>
+              >
+                Call Us Now
+              </a>
+        </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -172,7 +172,7 @@ const About = () => {
               Toronto, Ontario, Canada
             </span>
           </motion.p>
-        </div>
+      </div>
       </section>
     </div>
   );

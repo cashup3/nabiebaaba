@@ -59,19 +59,19 @@ const Astronaut = () => {
       }
 
       try {
-        const meshArray = await Promise.all(
-          bufferPaths.map((path) => fetchData(path, setPercentage)),
-        );
+      const meshArray = await Promise.all(
+        bufferPaths.map((path) => fetchData(path, setPercentage)),
+      );
 
-        const textures = await Promise.all(
-          texturePaths.map((textures) =>
-            Promise.all(
-              Object.values(textures).map((texturePath) =>
-                loadTexture(texturePath),
-              ),
+      const textures = await Promise.all(
+        texturePaths.map((textures) =>
+          Promise.all(
+            Object.values(textures).map((texturePath) =>
+              loadTexture(texturePath),
             ),
           ),
-        );
+        ),
+      );
 
         // Check refs again after async operations
         if (!astronaut_wearpack.current || !astronaut_body.current || 
@@ -82,44 +82,44 @@ const Astronaut = () => {
         }
 
         if (meshArray[0] && astronaut_wearpack.current) {
-          astronaut_wearpack.current.geometry = meshArray[0].geometry.clone();
-          astronaut_wearpack.current.material = new THREE.MeshStandardMaterial({
-            map: textures[2][0],
-            normalMap: textures[2][2],
-            roughnessMap: textures[2][1],
-            metalnessMap: textures[2][1],
-            aoMap: textures[2][1],
-          });
+      astronaut_wearpack.current.geometry = meshArray[0].geometry.clone();
+      astronaut_wearpack.current.material = new THREE.MeshStandardMaterial({
+        map: textures[2][0],
+        normalMap: textures[2][2],
+        roughnessMap: textures[2][1],
+        metalnessMap: textures[2][1],
+        aoMap: textures[2][1],
+      });
         }
 
         if (meshArray[1] && astronaut_body.current) {
-          astronaut_body.current.geometry = meshArray[1].geometry.clone();
+      astronaut_body.current.geometry = meshArray[1].geometry.clone();
         }
 
         if (meshArray[2] && astronaut_glove_shoes.current) {
-          astronaut_glove_shoes.current.geometry = meshArray[2].geometry.clone();
-          astronaut_glove_shoes.current.material = new THREE.MeshStandardMaterial({
-            map: textures[0][0],
-            normalMap: textures[0][2],
-            roughnessMap: textures[0][1],
-            metalnessMap: textures[0][1],
-            aoMap: textures[0][1],
-          });
+      astronaut_glove_shoes.current.geometry = meshArray[2].geometry.clone();
+      astronaut_glove_shoes.current.material = new THREE.MeshStandardMaterial({
+        map: textures[0][0],
+        normalMap: textures[0][2],
+        roughnessMap: textures[0][1],
+        metalnessMap: textures[0][1],
+        aoMap: textures[0][1],
+      });
         }
 
         if (meshArray[3] && astronaut_helmet.current) {
-          astronaut_helmet.current.geometry = meshArray[3].geometry.clone();
-          astronaut_helmet.current.material = new THREE.MeshStandardMaterial({
-            map: textures[1][0],
-            normalMap: textures[1][2],
-            roughnessMap: textures[1][1],
-            metalnessMap: textures[1][1],
-            aoMap: textures[1][1],
-          });
+      astronaut_helmet.current.geometry = meshArray[3].geometry.clone();
+      astronaut_helmet.current.material = new THREE.MeshStandardMaterial({
+        map: textures[1][0],
+        normalMap: textures[1][2],
+        roughnessMap: textures[1][1],
+        metalnessMap: textures[1][1],
+        aoMap: textures[1][1],
+      });
         }
 
         if (meshArray[4] && astronaut_helmet_glass.current) {
-          astronaut_helmet_glass.current.geometry = meshArray[4].geometry.clone();
+      astronaut_helmet_glass.current.geometry = meshArray[4].geometry.clone();
         }
       } catch (error) {
         console.error('Error loading astronaut assets:', error);
@@ -128,7 +128,7 @@ const Astronaut = () => {
 
     // Start loading after a small delay to ensure refs are attached
     const timer = setTimeout(() => {
-      fetchBuffers();
+    fetchBuffers();
     }, 100);
 
     return () => clearTimeout(timer);
