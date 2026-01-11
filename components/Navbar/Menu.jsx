@@ -6,6 +6,9 @@ import React, { useEffect, useRef, useState, useCallback } from "react";
 const Menu = ({ open, onOutsideClick, onLinkClick }) => {
   const ref = useRef();
   const timeoutRef = useRef(null);
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState({ type: '', text: '' });
   
   const justOpenedRef = useRef(false);
   
@@ -129,27 +132,81 @@ const Menu = ({ open, onOutsideClick, onLinkClick }) => {
               Subscribe to our newsletter
             </div>
             <form
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
-                // Form submission handled here
+                if (!email.trim()) {
+                  setMessage({ type: 'error', text: 'Please enter your email' });
+                  return;
+                }
+
+                setIsSubmitting(true);
+                setMessage({ type: '', text: '' });
+
+                try {
+                  const response = await fetch('/api/newsletter', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email.trim() }),
+                  });
+
+                  const data = await response.json();
+
+                  if (response.ok) {
+                    setMessage({ type: 'success', text: data.message || 'Successfully subscribed!' });
+                    setEmail('');
+                    // Clear message after 3 seconds
+                    setTimeout(() => setMessage({ type: '', text: '' }), 3000);
+                  } else {
+                    setMessage({ type: 'error', text: data.error || 'Something went wrong. Please try again.' });
+                  }
+                } catch (error) {
+                  setMessage({ type: 'error', text: 'Failed to subscribe. Please try again later.' });
+                } finally {
+                  setIsSubmitting(false);
+                }
               }}
-              className="flex justify-between bg-[#F0F1FA] dark:bg-gray-700 p-3 lg:p-4 rounded-xl mt-6 text-[#BEBFC7] dark:text-gray-300 text-lg lg:text-xl"
+              className="mt-6"
             >
-              <label className="">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="bg-[#F0F1FA] dark:bg-gray-700 dark:text-white w-1/2"
-                ></input>
-              </label>
-              <button type="submit">
-                <Image
-                  src={"/arrow-right.svg"}
-                  width={30}
-                  height={30}
-                  alt="right-arrow"
-                />
-              </button>
+              <div className="flex justify-between bg-[#F0F1FA] dark:bg-gray-700 p-3 lg:p-4 rounded-xl text-[#BEBFC7] dark:text-gray-300 text-lg lg:text-xl">
+                <label className="flex-1">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Your email"
+                    required
+                    disabled={isSubmitting}
+                    className="bg-[#F0F1FA] dark:bg-gray-700 dark:text-white w-full outline-none disabled:opacity-50"
+                  />
+                </label>
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="flex-shrink-0 ml-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <div className="w-[30px] h-[30px] border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></div>
+                  ) : (
+                    <Image
+                      src={"/arrow-right.svg"}
+                      width={30}
+                      height={30}
+                      alt="right-arrow"
+                    />
+                  )}
+                </button>
+              </div>
+              {message.text && (
+                <div className={`mt-3 text-sm ${
+                  message.type === 'success' 
+                    ? 'text-green-600 dark:text-green-400' 
+                    : 'text-red-600 dark:text-red-400'
+                }`}>
+                  {message.text}
+                </div>
+              )}
             </form>
           </a.div>
         </div>
