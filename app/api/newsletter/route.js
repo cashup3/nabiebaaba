@@ -78,3 +78,4 @@ export async function GET(request) {
   const isSubscribed = subscribers.has(email.toLowerCase());
   return NextResponse.json({ subscribed: isSubscribed });
 }
+

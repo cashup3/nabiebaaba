@@ -17,14 +17,10 @@ const LetsTalk = () => {
     x:-10,
   }));
 
-  const handleClick = () => {
-    // Open email client with info@knobstud.com
-    window.location.href = 'mailto:info@knobstud.com';
-  };
-
   return (
-    <div
-      className="nav_btn_lg nav_btn_dark flex items-center justify-center hover:bg-brblue py-6 cursor-pointer transition-all duration-300 active:scale-95"
+    <a
+      href="mailto:info@knobstud.com"
+      className="nav_btn_lg nav_btn_dark flex items-center justify-center hover:bg-brblue py-6 cursor-pointer transition-all duration-300 active:scale-95 no-underline"
       onMouseEnter={() => {
         api.start({  x: 20 });
         opacityApi.start({ opacity: 0, x: 5 });
@@ -35,21 +31,14 @@ const LetsTalk = () => {
         opacityApi.start({ opacity: 1 , x:0});
         opacityApiReverse.start({ opacity: 0, x: -10 });
       }}
-      onClick={handleClick}
       role="button"
       tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          handleClick();
-        }
-      }}
     >
 
       <a.div style={opacitySpringsReverse} className="opacity-0">➔</a.div>
       <a.div style={springs}>LET'S TALK &nbsp;</a.div>
       <a.div style={opacitySprings}>&nbsp;•&nbsp;</a.div>
-    </div>
+    </a>
   );
 };
 
