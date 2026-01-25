@@ -103,7 +103,7 @@ const About = () => {
           >
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 shadow-[0_18px_40px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
               <Image
-                src="https://images.unsplash.com/photo-X8pijrmZVg8?auto=format&fit=crop&w=1200&q=80"
+                src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80"
                 alt="Behind-the-scenes film production"
                 fill
                 className="object-cover"
@@ -113,7 +113,7 @@ const About = () => {
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 shadow-[0_18px_40px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.35)] md:translate-y-6">
               <Image
-                src="https://images.unsplash.com/photo-yMemQcLR8T4?auto=format&fit=crop&w=1200&q=80"
+                src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1200&q=80"
                 alt="Cinematography on set"
                 fill
                 className="object-cover"
@@ -123,7 +123,7 @@ const About = () => {
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 shadow-[0_18px_40px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
               <Image
-                src="https://images.unsplash.com/photo-q_XYJmOcVlI?auto=format&fit=crop&w=1200&q=80"
+                src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80"
                 alt="Camera operator at work"
                 fill
                 className="object-cover"
