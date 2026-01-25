@@ -7,11 +7,12 @@ const LetsTalkPage = () => {
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [location, setLocation] = useState("Toronto, ON");
 
   const phoneNumber = "+15149293511";
   const whatsappNumber = "15149293511";
   const whatsappMessage = encodeURIComponent(
-    `Hi KNOB Studio,%0A%0A${message || "I'd like to start a project."}%0A%0AName: ${name || "N/A"}%0AEmail: ${email || "N/A"}`
+    `Hi KNOB Studio,%0A%0A${message || "I'd like to start a project."}%0A%0AName: ${name || "N/A"}%0AEmail: ${email || "N/A"}%0ALocation: ${location || "N/A"}`
   );
 
   const mailtoLink = `mailto:info@knobstud.com?subject=${encodeURIComponent(
@@ -19,7 +20,7 @@ const LetsTalkPage = () => {
   )}&body=${encodeURIComponent(
     `Message:\n${message || "I'd like to start a project."}\n\nName: ${
       name || "N/A"
-    }\nEmail: ${email || "N/A"}\n`
+    }\nEmail: ${email || "N/A"}\nLocation: ${location || "N/A"}\n`
   )}`;
 
   return (
@@ -84,6 +85,29 @@ const LetsTalkPage = () => {
                       placeholder="you@email.com"
                       className="w-full px-3 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
                     />
+                  </div>
+                  <div className="sm:col-span-2">
+                    <label className="block text-xs sm:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                      Location
+                    </label>
+                    <select
+                      value={location}
+                      onChange={(e) => setLocation(e.target.value)}
+                      className="w-full px-3 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                    >
+                      <option>Toronto, ON</option>
+                      <option>Los Angeles, CA</option>
+                      <option>Montreal, QC</option>
+                      <option>New York City, NY</option>
+                      <option>Atlanta, GA</option>
+                      <option>Vancouver, BC</option>
+                      <option>Chicago, IL</option>
+                      <option>Calgary, AB</option>
+                      <option>Austin, TX</option>
+                      <option>London, UK</option>
+                      <option>Paris, FR</option>
+                      <option>Seoul, KR</option>
+                    </select>
                   </div>
                 </div>
 
@@ -169,12 +193,6 @@ const LetsTalkPage = () => {
                       </span>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div className="absolute -bottom-8 left-6 right-6 hidden sm:block">
-                <div className="flex items-center justify-between rounded-full border border-gray-200/80 dark:border-gray-800/80 bg-white/70 dark:bg-white/5 px-4 py-2 text-xs sm:text-sm text-gray-600 dark:text-gray-300 shadow-[0_10px_25px_rgba(0,0,0,0.1)]">
-                  <span>Response time: 24-48 hours</span>
-                  <span>Toronto, ON</span>
                 </div>
               </div>
             </div>
