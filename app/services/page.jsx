@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 const Services = () => {
   const labProjects = [
@@ -10,6 +11,7 @@ const Services = () => {
       id: 1,
       title: "Commercial & Brand Videos",
       description: "Compelling commercial content and brand storytelling that captivates audiences and drives engagement.",
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
       gradient: "from-red-400 to-pink-600 dark:from-gray-800 dark:to-gray-900",
       badge: "Active",
       badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
@@ -19,6 +21,7 @@ const Services = () => {
       id: 2,
       title: "Corporate & Promotional Films",
       description: "Professional corporate videos and promotional content that elevate your brand and communicate your message effectively.",
+      image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
       gradient: "from-blue-400 to-cyan-600 dark:from-gray-700 dark:to-gray-800",
       badge: "Active",
       badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
@@ -28,6 +31,7 @@ const Services = () => {
       id: 3,
       title: "Music Videos",
       description: "Creative music video production that brings songs to life with stunning visuals and artistic direction.",
+      image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=80",
       gradient: "from-green-400 to-emerald-600 dark:from-gray-900 dark:to-black",
       badge: "Active",
       badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
@@ -37,6 +41,7 @@ const Services = () => {
       id: 4,
       title: "Social Media Content",
       description: "Engaging social media videos optimized for platforms like Instagram, TikTok, YouTube, and more.",
+      image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=1200&q=80",
       gradient: "from-purple-400 to-violet-600 dark:from-black dark:to-gray-900",
       badge: "Active",
       badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
@@ -46,6 +51,7 @@ const Services = () => {
       id: 5,
       title: "Post-Production",
       description: "Professional editing, color grading, motion graphics, and visual effects to polish your content to perfection.",
+      image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80",
       gradient: "from-orange-400 to-red-600 dark:from-gray-800 dark:to-black",
       badge: "Active",
       badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
@@ -55,6 +61,7 @@ const Services = () => {
       id: 6,
       title: "Web Design",
       description: "Modern, responsive web design that creates engaging digital experiences and drives user engagement.",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
       gradient: "from-indigo-400 to-blue-600 dark:from-gray-700 dark:to-gray-800",
       badge: "Active",
       badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
@@ -64,6 +71,7 @@ const Services = () => {
       id: 7,
       title: "DSPs Services",
       description: "Music distribution and promotion services across digital streaming platforms to maximize your reach and visibility.",
+      image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1200&q=80",
       gradient: "from-teal-400 to-cyan-600 dark:from-gray-800 dark:to-gray-900",
       badge: "Active",
       badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
@@ -73,6 +81,7 @@ const Services = () => {
       id: 8,
       title: "Advertising",
       description: "Strategic advertising campaigns that connect with your target audience and drive measurable results.",
+      image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1200&q=80",
       gradient: "from-yellow-400 to-orange-600 dark:from-gray-900 dark:to-black",
       badge: "Active",
       badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
@@ -82,6 +91,7 @@ const Services = () => {
       id: 9,
       title: "Public Relations",
       description: "Comprehensive PR services to build your brand reputation, manage media relations, and enhance your public image.",
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
       gradient: "from-pink-400 to-rose-600 dark:from-gray-800 dark:to-gray-900",
       badge: "Active",
       badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
@@ -91,6 +101,7 @@ const Services = () => {
       id: 10,
       title: "Photoshoots",
       description: "Professional photography services for portraits, product shots, events, and creative campaigns that capture your vision.",
+      image: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=1200&q=80",
       gradient: "from-violet-400 to-purple-600 dark:from-black dark:to-gray-900",
       badge: "Active",
       badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
@@ -100,6 +111,7 @@ const Services = () => {
       id: 11,
       title: "Creative Direction",
       description: "Strategic creative direction that shapes your brand identity, visual language, and overall artistic vision across all mediums.",
+      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
       gradient: "from-amber-400 to-yellow-600 dark:from-gray-900 dark:to-black",
       badge: "Active",
       badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
@@ -142,10 +154,20 @@ const Services = () => {
                 className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg sm:rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-8 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300 group cursor-pointer shadow-md hover:shadow-xl dark:shadow-none"
               >
                 {/* Icon/Image Area */}
-                <div className={`w-full h-40 sm:h-48 md:h-56 lg:h-64 bg-gradient-to-br ${project.gradient} rounded-lg sm:rounded-xl mb-4 sm:mb-5 md:mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300`}>
-                  <span className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
-                    {project.icon}
-                  </span>
+                <div className={`relative w-full h-40 sm:h-48 md:h-56 lg:h-64 rounded-lg sm:rounded-xl mb-4 sm:mb-5 md:mb-6 overflow-hidden group-hover:scale-105 transition-transform duration-300`}>
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-70`} />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-lg">
+                      {project.icon}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Content */}
