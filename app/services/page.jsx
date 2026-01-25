@@ -11,7 +11,7 @@ const Services = () => {
       id: 1,
       title: "Commercial & Brand Videos",
       description: "Compelling commercial content and brand storytelling that captivates audiences and drives engagement.",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80",
       gradient: "from-red-400 to-pink-600 dark:from-gray-800 dark:to-gray-900",
       badge: "Active",
       badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
@@ -31,7 +31,7 @@ const Services = () => {
       id: 3,
       title: "Music Videos",
       description: "Creative music video production that brings songs to life with stunning visuals and artistic direction.",
-      image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&q=80",
       gradient: "from-green-400 to-emerald-600 dark:from-gray-900 dark:to-black",
       badge: "Active",
       badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
@@ -41,7 +41,7 @@ const Services = () => {
       id: 4,
       title: "Social Media Content",
       description: "Engaging social media videos optimized for platforms like Instagram, TikTok, YouTube, and more.",
-      image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
       gradient: "from-purple-400 to-violet-600 dark:from-black dark:to-gray-900",
       badge: "Active",
       badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
@@ -51,7 +51,7 @@ const Services = () => {
       id: 5,
       title: "Post-Production",
       description: "Professional editing, color grading, motion graphics, and visual effects to polish your content to perfection.",
-      image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=1200&q=80",
       gradient: "from-orange-400 to-red-600 dark:from-gray-800 dark:to-black",
       badge: "Active",
       badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
@@ -61,7 +61,7 @@ const Services = () => {
       id: 6,
       title: "Web Design",
       description: "Modern, responsive web design that creates engaging digital experiences and drives user engagement.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=1200&q=80",
       gradient: "from-indigo-400 to-blue-600 dark:from-gray-700 dark:to-gray-800",
       badge: "Active",
       badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
@@ -91,7 +91,7 @@ const Services = () => {
       id: 9,
       title: "Public Relations",
       description: "Comprehensive PR services to build your brand reputation, manage media relations, and enhance your public image.",
-      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1485217988980-11786ced9454?auto=format&fit=crop&w=1200&q=80",
       gradient: "from-pink-400 to-rose-600 dark:from-gray-800 dark:to-gray-900",
       badge: "Active",
       badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
@@ -162,7 +162,6 @@ const Services = () => {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
-                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-70`} />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-lg">
                       {project.icon}
