@@ -10,6 +10,7 @@ const Contact = () => {
     subject: "",
     message: ""
   });
+  const [status, setStatus] = useState({ type: "", text: "" });
 
   const handleChange = (e) => {
     setFormData({
@@ -18,10 +19,36 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
+    setStatus({ type: "", text: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus({
+          type: "success",
+          text: "Message sent successfully. Check your inbox.",
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        const data = await response.json();
+        setStatus({
+          type: "error",
+          text: data.error || "Something went wrong. Please try again.",
+        });
+      }
+    } catch (error) {
+      setStatus({
+        type: "error",
+        text: "Failed to send message. Please try again later.",
+      });
+    }
   };
 
   return (
@@ -201,6 +228,17 @@ const Contact = () => {
                   Send Message
                 </button>
               </div>
+              {status.text && (
+                <div
+                  className={`text-sm sm:text-base ${
+                    status.type === "success"
+                      ? "text-green-600 dark:text-green-400"
+                      : "text-red-600 dark:text-red-400"
+                  }`}
+                >
+                  {status.text}
+                </div>
+              )}
               </form>
             </motion.div>
 
