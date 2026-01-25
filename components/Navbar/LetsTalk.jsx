@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { useSpring, a } from "@react-spring/web";
 
 const LetsTalk = () => {
@@ -18,8 +19,8 @@ const LetsTalk = () => {
   }));
 
   return (
-    <a
-      href="mailto:info@knobstud.com"
+    <Link
+      href="/lets-talk"
       className="nav_btn_lg nav_btn_dark flex items-center justify-center hover:bg-brblue py-6 cursor-pointer transition-all duration-300 active:scale-95 no-underline"
       onMouseEnter={() => {
         api.start({  x: 20 });
@@ -38,7 +39,7 @@ const LetsTalk = () => {
       <a.div style={opacitySpringsReverse} className="opacity-0">➔</a.div>
       <a.div style={springs}>LET'S TALK &nbsp;</a.div>
       <a.div style={opacitySprings}>&nbsp;•&nbsp;</a.div>
-    </a>
+    </Link>
   );
 };
 

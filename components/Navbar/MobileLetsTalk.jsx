@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { useSpring, a } from "@react-spring/web";
 
 const MobileLetsTalk = () => {
@@ -18,8 +19,8 @@ const MobileLetsTalk = () => {
   }));
 
   return (
-    <a
-      href="mailto:info@knobstud.com"
+    <Link
+      href="/lets-talk"
       className="flex items-center justify-center w-10 h-10 rounded-full bg-[#2B2E3A] text-[#D4D5D7] hover:bg-brblue cursor-pointer transition-all duration-300 active:scale-95 no-underline"
       onMouseEnter={() => {
         api.start({  x: 10 });
@@ -39,7 +40,7 @@ const MobileLetsTalk = () => {
         <a.div style={springs}>TALK</a.div>
         <a.div style={opacitySprings}>&nbsp;•</a.div>
       </div>
-    </a>
+    </Link>
   );
 };
 

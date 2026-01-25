@@ -10,7 +10,6 @@ import MenuButton from "./MenuButton";
 import MobileMenuButton from "./MobileMenuButton";
 import MobileLetsTalk from "./MobileLetsTalk";
 import Link from "next/link";
-import MusicButton from "./MusicButton";
 import Image from "next/image";
 import NightModeToggle from "../NightModeToggle";
 
@@ -83,7 +82,6 @@ function Navbar() {
           {!showLogo && isHomePage && <div></div>}
           <div className="hidden lg:flex items-center justify-around font-AeonikMedium">
             <Trail open={open} className="flex">
-              <MusicButton />
               <LetsTalk />
               <NightModeToggle />
               <MenuButton />

@@ -99,10 +99,15 @@ const Menu = ({ open, onOutsideClick, onLinkClick }) => {
   return (
     <>
       {!hidden && (
-        <div
-          className="absolute top-[4rem] right-0 w-[calc(100vw-2rem)] lg:w-[20rem] max-w-[20rem]"
-          ref={ref}
-        >
+        <>
+          <div
+            className="fixed inset-0 z-40 bg-black/10 dark:bg-black/40 backdrop-blur-[1px]"
+            onClick={onOutsideClick}
+          />
+          <div
+            className="absolute top-[4rem] right-0 z-50 w-[calc(100vw-2rem)] lg:w-[20rem] max-w-[20rem]"
+            ref={ref}
+          >
           {/* Contents */}
           <a.div
             className="rounded-xl bg-white dark:bg-gray-800 flex flex-col font-Aeonik text-2xl lg:text-3xl p-6 lg:p-8 text-gray-900 dark:text-white"
@@ -209,7 +214,8 @@ const Menu = ({ open, onOutsideClick, onLinkClick }) => {
               )}
             </form>
           </a.div>
-        </div>
+          </div>
+        </>
       )}
     </>
   );

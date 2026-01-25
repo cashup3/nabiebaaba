@@ -3,6 +3,7 @@
 import Navbar from "@/components/Navbar/Navbar";
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import EarthHero from "@/components/About/EarthHero";
 import MovingLogos from "@/components/About/MovingLogos";
 
@@ -30,9 +31,24 @@ const About = () => {
               <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 KNOB is a full-service video production company built on passion, precision, and storytelling.
                 With more than 15 years in the industry, we&apos;ve worked across commercials, brand films,
-                music videos, documentaries, and digital content — always focused on quality and impact.
+                music videos, documentaries, and digital content, always focused on quality and impact.
               </p>
-              <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                The studio started as a small crew of filmmakers who believed every brand had a story worth
+                telling. What began with late nights, borrowed gear, and a few local projects grew into a
+                dedicated production house trusted by artists, businesses, and agencies. Over the years,
+                our identity has been shaped by the same idea that sparked the first shoot: cinematic craft
+                and real emotion beat noise every time. We refine the concept, build the visual language,
+                and deliver content that feels intentional from the first frame to the last.
+              </p>
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                Today, KNOB blends a boutique, hands-on approach with a full-service pipeline. We collaborate
+                closely with clients, from brand discovery through post-production, to make sure each piece
+                of work is not only beautiful but also aligned with the strategy behind it. That balance of
+                creativity and clarity is the story of our brand, and it is what keeps our work consistent,
+                modern, and unmistakably KNOB.
+              </p>
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 Our team blends creative vision with technical excellence to deliver visuals that feel
                 authentic, modern, and unforgettable.
               </p>
@@ -67,9 +83,55 @@ const About = () => {
                     Documentaries and digital content with cinematic quality
                   </p>
                 </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-gray-900 dark:bg-white rounded-full mt-2 flex-shrink-0" />
+                  <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Social media content creation designed for engagement
+                  </p>
+                </div>
               </div>
             </motion.div>
           </div>
+
+          {/* About Images */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mt-12 sm:mt-16"
+          >
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 shadow-[0_18px_40px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
+              <Image
+                src="https://images.unsplash.com/photo-X8pijrmZVg8?auto=format&fit=crop&w=1200&q=80"
+                alt="Behind-the-scenes film production"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
+                priority={false}
+              />
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 shadow-[0_18px_40px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.35)] md:translate-y-6">
+              <Image
+                src="https://images.unsplash.com/photo-yMemQcLR8T4?auto=format&fit=crop&w=1200&q=80"
+                alt="Cinematography on set"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
+                priority={false}
+              />
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 shadow-[0_18px_40px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
+              <Image
+                src="https://images.unsplash.com/photo-q_XYJmOcVlI?auto=format&fit=crop&w=1200&q=80"
+                alt="Camera operator at work"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
+                priority={false}
+              />
+            </div>
+          </motion.div>
 
           {/* Stats Section */}
           <motion.div 
