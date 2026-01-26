@@ -12,14 +12,15 @@ export async function POST(request) {
       );
     }
 
-    if (
-      !process.env.ZOHO_SMTP_HOST ||
-      !process.env.ZOHO_SMTP_PORT ||
-      !process.env.ZOHO_SMTP_USER ||
-      !process.env.ZOHO_SMTP_PASS
-    ) {
+    const missing = [];
+    if (!process.env.ZOHO_SMTP_HOST) missing.push("ZOHO_SMTP_HOST");
+    if (!process.env.ZOHO_SMTP_PORT) missing.push("ZOHO_SMTP_PORT");
+    if (!process.env.ZOHO_SMTP_USER) missing.push("ZOHO_SMTP_USER");
+    if (!process.env.ZOHO_SMTP_PASS) missing.push("ZOHO_SMTP_PASS");
+
+    if (missing.length > 0) {
       return NextResponse.json(
-        { error: "Email service is not configured." },
+        { error: "Email service is not configured.", missing },
         { status: 500 }
       );
     }

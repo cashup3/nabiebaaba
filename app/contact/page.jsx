@@ -38,9 +38,13 @@ const Contact = () => {
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
         const data = await response.json();
+        const missing = Array.isArray(data.missing) ? data.missing.join(", ") : "";
         setStatus({
           type: "error",
-          text: data.error || "Something went wrong. Please try again.",
+          text:
+            data.error ||
+            "Something went wrong. Please try again." +
+              (missing ? ` Missing: ${missing}` : ""),
         });
       }
     } catch (error) {
