@@ -14,6 +14,8 @@ import FeaturedVideo from "@/components/Featured/FeaturedVideo";
 import Connection from "@/components/ConnectingSection/Connection";
 import Experience from "@/components/Experience/Experience";
 import { Planets } from "@/components/Pipes/Planets";
+import Image from "next/image";
+import qImage from "../q.jpg";
 
 export default function Home() {
   const ref = useRef(null);
@@ -22,8 +24,21 @@ export default function Home() {
       <div className="bg-[#F0F1FA] dark:bg-black h-auto w-full font-[#060607] dark:text-white flex flex-col px-4 sm:px-6 lg:px-8 xl:px-20 overflow-x-hidden transition-colors duration-300">
         <Navbar />
 
+        <Description />
+        <div className="h-[80vh] flex flex-col pb-4 sm:pb-6 pt-20">
+          <div className="relative h-full">
+            <Image
+              src={qImage}
+              alt="Wallpaper"
+              fill
+              priority
+              className="absolute inset-0 rounded-lg sm:rounded-xl lg:rounded-3xl object-cover"
+            />
+            <div className="absolute inset-0 rounded-lg sm:rounded-xl lg:rounded-3xl bg-black/30" />
+          </div>
+        </div>
+
         <div className="h-screen flex flex-col pb-4 sm:pb-6">
-          <Description />
           <Planets className="h-full rounded-lg sm:rounded-xl lg:rounded-3xl" />
           <ScrollText />
         </div>
