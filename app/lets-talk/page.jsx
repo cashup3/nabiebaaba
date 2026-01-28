@@ -8,6 +8,8 @@ const LetsTalkPage = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [location, setLocation] = useState("Toronto, ON");
+  const [status, setStatus] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const phoneNumber = "+15149293511";
   const whatsappNumber = "15149293511";
@@ -15,13 +17,52 @@ const LetsTalkPage = () => {
     `Hi KNOB Studio,%0A%0A${message || "I'd like to start a project."}%0A%0AName: ${name || "N/A"}%0AEmail: ${email || "N/A"}%0ALocation: ${location || "N/A"}`
   );
 
-  const mailtoLink = `mailto:info@knobstud.com?subject=${encodeURIComponent(
-    "Let's Talk - Project Request"
-  )}&body=${encodeURIComponent(
-    `Message:\n${message || "I'd like to start a project."}\n\nName: ${
-      name || "N/A"
-    }\nEmail: ${email || "N/A"}\nLocation: ${location || "N/A"}\n`
-  )}`;
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setStatus(null);
+
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      setStatus({
+        type: "error",
+        message: "Please fill in your name, email, and message.",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          subject: "Let's Talk - Project Request",
+          message: `Message: ${message.trim()}\nLocation: ${location}`,
+        }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.error || "Failed to send message.");
+      }
+
+      setStatus({
+        type: "success",
+        message: "Thanks! Your request has been sent.",
+      });
+      setMessage("");
+      setEmail("");
+      setName("");
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message: error.message || "Failed to send message. Try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#F2F4FB] via-white to-[#EEF1F8] dark:from-black dark:via-[#0B0F1A] dark:to-black text-gray-900 dark:text-white">
@@ -56,7 +97,10 @@ const LetsTalkPage = () => {
                 also reach us directly by WhatsApp or phone.
               </p>
 
-              <div className="relative overflow-hidden rounded-2xl border border-gray-200/70 dark:border-gray-800/80 bg-white/70 dark:bg-white/5 backdrop-blur-xl p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.35)] ring-1 ring-white/50 dark:ring-white/10">
+              <form
+                onSubmit={handleSubmit}
+                className="relative overflow-hidden rounded-2xl border border-gray-200/70 dark:border-gray-800/80 bg-white/70 dark:bg-white/5 backdrop-blur-xl p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.35)] ring-1 ring-white/50 dark:ring-white/10"
+              >
                 <div className="pointer-events-none absolute -top-10 right-12 h-24 w-24 rounded-full bg-gradient-to-br from-white to-blue-100 dark:from-white/15 dark:to-white/5 shadow-[0_20px_45px_rgba(0,0,0,0.18)]" />
                 <div className="pointer-events-none absolute -bottom-10 left-10 h-20 w-20 rounded-[2.2rem] border border-white/60 dark:border-white/15 shadow-[0_18px_40px_rgba(0,0,0,0.2)]" />
                 <div className="pointer-events-none absolute top-10 left-1/2 h-32 w-32 -translate-x-1/2 rounded-full border border-white/40 dark:border-white/10" />
@@ -125,12 +169,13 @@ const LetsTalkPage = () => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <a
-                    href={mailtoLink}
-                    className="inline-flex items-center justify-center bg-gray-900 dark:bg-white text-white dark:text-black px-6 py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors shadow-md shadow-black/10 dark:shadow-black/30"
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="inline-flex items-center justify-center bg-gray-900 dark:bg-white text-white dark:text-black px-6 py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors shadow-md shadow-black/10 dark:shadow-black/30 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Send Request
-                  </a>
+                    {isSubmitting ? "Sending..." : "Send Request"}
+                  </button>
                   <a
                     href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
                     target="_blank"
@@ -146,7 +191,18 @@ const LetsTalkPage = () => {
                     Call Us
                   </a>
                 </div>
-              </div>
+                {status && (
+                  <p
+                    className={`mt-4 text-sm sm:text-base ${
+                      status.type === "success"
+                        ? "text-emerald-600 dark:text-emerald-400"
+                        : "text-red-600 dark:text-red-400"
+                    }`}
+                  >
+                    {status.message}
+                  </p>
+                )}
+              </form>
             </div>
 
             <div className="relative">
