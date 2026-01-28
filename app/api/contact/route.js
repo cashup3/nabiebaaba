@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {
-    const { name, email, subject, message } = await request.json();
+    const { name, email, subject, message, location } = await request.json();
 
     if (!name || !email || !subject || !message) {
       return NextResponse.json(
@@ -38,8 +38,11 @@ export async function POST(request) {
     await transporter.sendMail({
       from: `"KNOB Studio" <${process.env.ZOHO_SMTP_USER}>`,
       to: "info@knobstud.com",
+      replyTo: email,
       subject: `New Contact Form: ${subject}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+      text: `Name: ${name}\nEmail: ${email}\nLocation: ${
+        location || "N/A"
+      }\n\nMessage:\n${message}`,
     });
 
     await transporter.sendMail({

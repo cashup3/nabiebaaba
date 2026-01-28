@@ -38,7 +38,8 @@ const LetsTalkPage = () => {
           name: name.trim(),
           email: email.trim(),
           subject: "Let's Talk - Project Request",
-          message: `Message: ${message.trim()}\nLocation: ${location}`,
+          message: message.trim(),
+          location,
         }),
       });
 
