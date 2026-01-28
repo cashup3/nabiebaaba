@@ -20,7 +20,12 @@ export async function POST(request) {
 
     if (missing.length > 0) {
       return NextResponse.json(
-        { error: "Email service is not configured.", missing },
+        {
+          error: "Email service is not configured.",
+          missing,
+          hint:
+            "Set SMTP env vars (ZOHO_SMTP_HOST, ZOHO_SMTP_PORT, ZOHO_SMTP_USER, ZOHO_SMTP_PASS) in your hosting provider (e.g., Vercel) and redeploy.",
+        },
         { status: 500 }
       );
     }
