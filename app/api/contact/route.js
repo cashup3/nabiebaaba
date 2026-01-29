@@ -2,6 +2,9 @@ import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
 export async function POST(request) {
   try {
     const { name, email, subject, message, location } = await request.json();

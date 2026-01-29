@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { verifySessionToken } from "@/lib/adminAuth";
 
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
 export async function GET(request) {
   const session = request.cookies.get("admin_session")?.value;
   if (!verifySessionToken(session)) {
