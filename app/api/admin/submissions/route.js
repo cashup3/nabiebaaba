@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/db";
+import { getPrisma } from "@/lib/db";
 import { verifySessionToken } from "@/lib/adminAuth";
 
 export const runtime = "nodejs";
@@ -12,6 +12,13 @@ export async function GET(request) {
   }
 
   try {
+    const prisma = getPrisma();
+    if (!prisma) {
+      return NextResponse.json(
+        { error: "Database is not configured." },
+        { status: 500 }
+      );
+    }
     const submissions = await prisma.submission.findMany({
       orderBy: { createdAt: "desc" },
     });

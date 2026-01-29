@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/db";
+import { getPrisma } from "@/lib/db";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -23,6 +23,10 @@ export async function POST(request) {
       "unknown";
 
     try {
+      const prisma = getPrisma();
+      if (!prisma) {
+        throw new Error("DATABASE_URL is not configured.");
+      }
       await prisma.submission.create({
         data: {
           name,
