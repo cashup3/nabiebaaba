@@ -26,7 +26,7 @@ export async function GET(request) {
   } catch (error) {
     console.error("Fetch submissions error:", error);
     return NextResponse.json(
-      { error: "Failed to load submissions." },
+      { error: error?.message || "Failed to load submissions." },
       { status: 500 }
     );
   }
