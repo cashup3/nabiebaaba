@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
+import { prisma } from "@/lib/db";
 
 export async function POST(request) {
   try {
@@ -10,6 +11,26 @@ export async function POST(request) {
         { error: "All fields are required." },
         { status: 400 }
       );
+    }
+
+    const forwardedFor = request.headers.get("x-forwarded-for");
+    const ip =
+      forwardedFor?.split(",")[0]?.trim() ||
+      request.headers.get("x-real-ip") ||
+      "unknown";
+
+    try {
+      await prisma.submission.create({
+        data: {
+          name,
+          email,
+          location: location || "N/A",
+          message,
+          ip,
+        },
+      });
+    } catch (error) {
+      console.error("Submission save error:", error);
     }
 
     const missing = [];
