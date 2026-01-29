@@ -1,5 +1,6 @@
 "use client";
 import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Character/Experience";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
@@ -247,6 +248,10 @@ const Contact = () => {
             </motion.div>
 
         </div>
+      </div>
+
+      <div className="relative mt-8 sm:mt-12 md:mt-16">
+        <Footer />
       </div>
     </div>
   );

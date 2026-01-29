@@ -1,8 +1,6 @@
 "use client";
 import { Suspense, useRef } from "react";
 import FullScreenLoader from "@/components/Loaders/FullScreenLoader";
-import Footer from "@/components/Character/Experience";
-
 import Header from "@/components/Featured/Header";
 import SubHeader from "@/components/Featured/SubHeader";
 import Description from "@/components/Navbar/Description";
@@ -38,25 +36,19 @@ export default function Home() {
           </div>
         </div>
 
+        <div className="h-auto relative mt-12 sm:mt-16 md:mt-20 lg:mt-24" ref={ref}>
+          <Header />
+          <SubHeader />
+        </div>
+
         <div className="h-screen flex flex-col pb-4 sm:pb-6">
           <Planets className="h-full rounded-lg sm:rounded-xl lg:rounded-3xl" />
           <ScrollText />
         </div>
         
-        <div className="h-auto relative mt-12 sm:mt-16 md:mt-20 lg:mt-24" ref={ref}>
-          <Header />
-          <SubHeader />
-        </div>
         <FeaturedVideo />
         <FeaturedWork />
         <Connection className="" />
-        
-        <div className="relative mt-8 sm:mt-12 md:mt-16">
-          <Footer />
-          <div className="absolute text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-center w-full h-full top-[8rem] sm:top-[12rem] md:top-[16rem] lg:top-[2rem] xl:top-[1rem] px-4">
-            Powered By Knob Studio
-          </div>
-        </div>
         
         {/* Social Media Footer */}
         <div className="w-full bg-black text-white py-8 sm:py-10 md:py-12 px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">

@@ -59,7 +59,7 @@ function Navbar() {
         <div className="flex items-center justify-between w-full font-extrabold pb-2">
           {showLogo && isHomePage && (
           <div className="tracking-wider font-extrabold text-2xl sm:text-3xl cursor-pointer">
-            <Link href="/"><Image src={'/IMG_6460.PNG'} width={120} height={200} priority alt="KNOB Studio Logo" className="sm:w-[140px] sm:h-[220px] dark:invert dark:brightness-0 dark:contrast-200"/></Link>
+            <Link href="/"><Image src={'/IMG_6460.PNG'} width={60} height={90} priority alt="KNOB Studio Logo" className="sm:w-[80px] sm:h-[110px] dark:invert dark:brightness-0 dark:contrast-200"/></Link>
           </div>
           )}
           {!showLogo && isHomePage && <div></div>}
@@ -76,7 +76,7 @@ function Navbar() {
         <div className="items-start justify-between hidden lg:flex pt-10 lg:pt-14 pb-8 lg:pb-10">
           {showLogo && isHomePage && (
           <div className="tracking-wider font-AeonikMedium text-3xl lg:text-4xl">
-            <Link href="/"><Image src={'/IMG_6460.PNG'} width={240} height={200} priority alt="KNOB Studio Logo" className="lg:w-[260px] lg:h-[210px] dark:invert dark:brightness-0 dark:contrast-200"/></Link>
+            <Link href="/"><Image src={'/IMG_6460.PNG'} width={120} height={90} priority alt="KNOB Studio Logo" className="lg:w-[140px] lg:h-[110px] dark:invert dark:brightness-0 dark:contrast-200"/></Link>
           </div>
           )}
           {!showLogo && isHomePage && <div></div>}
