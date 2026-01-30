@@ -23,7 +23,7 @@ export async function POST(request) {
       "unknown";
 
     try {
-      const prisma = getPrisma();
+      const prisma = await getPrisma();
       if (!prisma) {
         throw new Error("DATABASE_URL is not configured.");
       }

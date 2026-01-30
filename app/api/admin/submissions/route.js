@@ -12,7 +12,7 @@ export async function GET(request) {
   }
 
   try {
-    const prisma = getPrisma();
+    const prisma = await getPrisma();
     if (!prisma) {
       return NextResponse.json(
         { error: "Database is not configured." },
