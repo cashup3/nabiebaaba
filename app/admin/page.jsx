@@ -20,9 +20,20 @@ export default function AdminPage() {
         setLoading(false);
         return;
       }
-      const data = await response.json();
+      const bodyText = await response.text();
+      let data = {};
+      if (bodyText) {
+        try {
+          data = JSON.parse(bodyText);
+        } catch {
+          data = { error: bodyText };
+        }
+      }
       if (!response.ok) {
-        throw new Error(data.error || "Failed to load submissions.");
+        throw new Error(
+          data.error ||
+            `Failed to load submissions. (HTTP ${response.status})`
+        );
       }
       setSubmissions(data.submissions || []);
       setIsAuthed(true);
@@ -47,9 +58,19 @@ export default function AdminPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
       });
-      const data = await response.json();
+      const bodyText = await response.text();
+      let data = {};
+      if (bodyText) {
+        try {
+          data = JSON.parse(bodyText);
+        } catch {
+          data = { error: bodyText };
+        }
+      }
       if (!response.ok) {
-        throw new Error(data.error || "Login failed.");
+        throw new Error(
+          data.error || `Login failed. (HTTP ${response.status})`
+        );
       }
       await loadSubmissions();
     } catch (err) {
