@@ -25,8 +25,10 @@ export async function GET(request) {
     return NextResponse.json({ submissions }, { status: 200 });
   } catch (error) {
     console.error("Fetch submissions error:", error);
+    const message =
+      error instanceof Error ? error.message : String(error || "");
     return NextResponse.json(
-      { error: error?.message || "Failed to load submissions." },
+      { error: message || "Failed to load submissions." },
       { status: 500 }
     );
   }
