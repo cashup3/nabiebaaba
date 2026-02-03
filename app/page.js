@@ -7,7 +7,6 @@ import Description from "@/components/Navbar/Description";
 import Navbar from "@/components/Navbar/Navbar";
 import ScrollText from "@/components/Navbar/ScrollText";
 import { Scene } from "@/components/Pipes/CrossPipes";
-import FeaturedWork from "@/components/FeaturedWork/FeaturedWork";
 import FeaturedVideo from "@/components/Featured/FeaturedVideo";
 import Connection from "@/components/ConnectingSection/Connection";
 import Experience from "@/components/Experience/Experience";
@@ -47,7 +46,6 @@ export default function Home() {
         </div>
         
         <FeaturedVideo />
-        <FeaturedWork />
         <Connection className="" />
         
         {/* Social Media Footer */}

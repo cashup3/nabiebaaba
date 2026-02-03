@@ -53,10 +53,14 @@ const FeaturedWork = () => {
           <br className="hidden sm:block" /> CLIENTS AND FRIENDS OVER THE YEARS
         </div>
       </div>
-      <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8 perspective-1000 w-full h-auto transform-style-3d mt-6 sm:mt-8 lg:mt-0">
-        {Array.from({ length: 6 }, (_, index) => (
-          <motion.div key={index} className={"flex items-center shadow-lg text-center justify-center w-full rounded-lg sm:rounded-xl lg:rounded-2xl xl:rounded-3xl h-[12rem] sm:h-[16rem] md:h-[20rem] lg:h-[24rem] xl:h-[27rem] text-black overflow-hidden"} style={{ rotateX: velocityFactor }}>
-            <Image src={`/textures/497205817043227020${index + 3}.jpg`} width={300} height={270} className="w-full h-full object-cover rounded-lg sm:rounded-xl lg:rounded-2xl xl:rounded-3xl" loading="lazy" alt={`Featured work ${index + 1}`}/>
+      <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8 perspective-1000 w-full h-auto transform-style-3d mt-6 sm:mt-8 lg:mt-0">
+        {[
+          "/textures/4972058170432270203.jpg",
+          "/textures/4972058170432270207.jpg",
+          "/textures/4972058170432270208.jpg",
+        ].map((src, index) => (
+          <motion.div key={src} className={"flex items-center shadow-lg text-center justify-center w-full rounded-lg sm:rounded-xl lg:rounded-2xl xl:rounded-3xl h-[12rem] sm:h-[16rem] md:h-[20rem] lg:h-[24rem] xl:h-[27rem] text-black overflow-hidden"} style={{ rotateX: velocityFactor }}>
+            <Image src={src} width={300} height={270} className="w-full h-full object-cover rounded-lg sm:rounded-xl lg:rounded-2xl xl:rounded-3xl" loading="lazy" alt={`Featured work ${index + 1}`}/>
           </motion.div>
         ))}
       </div>
