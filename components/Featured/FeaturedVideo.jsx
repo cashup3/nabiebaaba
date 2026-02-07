@@ -66,7 +66,7 @@ const FeaturedVideo = () => {
         >
           {isVideoLoaded && isVideoVisible && (
             <>
-              <source src="/videos/knob studio demo.mov" type="video/quicktime" />
+              <source src="/videos/KnobStudio_Ad1.mp4" type="video/mp4" />
             </>
           )}
           Your browser does not support the video tag.

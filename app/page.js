@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import ScrollText from "@/components/Navbar/ScrollText";
 import { Scene } from "@/components/Pipes/CrossPipes";
 import FeaturedVideo from "@/components/Featured/FeaturedVideo";
+import FeaturedWork from "@/components/FeaturedWork/FeaturedWork";
 import Connection from "@/components/ConnectingSection/Connection";
 import Experience from "@/components/Experience/Experience";
 import { Planets } from "@/components/Pipes/Planets";
@@ -35,17 +36,18 @@ export default function Home() {
           </div>
         </div>
 
+        <div className="h-[60vh] sm:h-[65vh] lg:h-[70vh] flex flex-col pb-4 sm:pb-6">
+          <Planets className="h-full rounded-lg sm:rounded-xl lg:rounded-3xl" />
+          <ScrollText />
+        </div>
+
         <div className="h-auto relative mt-12 sm:mt-16 md:mt-20 lg:mt-24" ref={ref}>
           <Header />
           <SubHeader />
         </div>
-
-        <div className="h-screen flex flex-col pb-4 sm:pb-6">
-          <Planets className="h-full rounded-lg sm:rounded-xl lg:rounded-3xl" />
-          <ScrollText />
-        </div>
         
         <FeaturedVideo />
+        <FeaturedWork />
         <Connection className="" />
         
         {/* Social Media Footer */}
