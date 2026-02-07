@@ -162,7 +162,7 @@ const Astronaut = () => {
   })
   return (
     <>
-      <OrbitControls />
+      <OrbitControls enableZoom={false} />
       <group ref={astronaut} scale={3} position={[0,-4 ,0]}>
         <mesh ref={astronaut_wearpack}></mesh>
         <mesh ref={astronaut_body}></mesh>
