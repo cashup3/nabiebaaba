@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
-      <body className={`${playfair.variable} ${spaceGrotesk.variable} font-Aeonik`}>{children}</body>
+      <body className={`dark ${playfair.variable} ${spaceGrotesk.variable} font-Aeonik`}>{children}</body>
     </html>
   )
 }

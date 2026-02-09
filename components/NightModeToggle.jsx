@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const NightModeToggle = () => {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
 
   useEffect(() => {
     if (dark) {
