@@ -52,7 +52,11 @@ export const metadata = {
     statusBarStyle: 'default',
     title: 'Knob Studio',
   },
-  viewport: 'width=device-width, initial-scale=1',
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
 }
 
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', weight: ['400','700','800'] })

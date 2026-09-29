@@ -1,12 +1,10 @@
-import { noIndexRobots } from "@/lib/site";
+import { noIndexMetadata } from "@/lib/site";
 
-export const metadata = {
+export const metadata = noIndexMetadata({
   title: "Admin",
-  robots: noIndexRobots,
-  alternates: {
-    canonical: "/admin",
-  },
-};
+  description: "Private Knob Studio submissions dashboard.",
+  path: "/admin",
+});
 
 export default function AdminLayout({ children }) {
   return children;

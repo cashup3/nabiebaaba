@@ -1,14 +1,12 @@
-import { noIndexRobots } from "@/lib/site";
+import { noIndexMetadata } from "@/lib/site";
 
-export const metadata = {
+export const metadata = noIndexMetadata({
   title: "Let's Talk",
   description:
     "Send Knob Studio a project request by form, WhatsApp, or phone.",
-  robots: noIndexRobots,
-  alternates: {
-    canonical: "/contact",
-  },
-};
+  path: "/lets-talk",
+  canonical: "/contact",
+});
 
 export default function LetsTalkLayout({ children }) {
   return children;

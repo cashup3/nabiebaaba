@@ -1,12 +1,10 @@
-import { noIndexRobots } from "@/lib/site";
+import { noIndexMetadata } from "@/lib/site";
 
-export const metadata = {
+export const metadata = noIndexMetadata({
   title: "MediaPipe",
-  robots: noIndexRobots,
-  alternates: {
-    canonical: "/mediapipe",
-  },
-};
+  description: "Internal Knob Studio MediaPipe experiment.",
+  path: "/mediapipe",
+});
 
 export default function MediaPipeLayout({ children }) {
   return children;

@@ -1,12 +1,10 @@
-import { noIndexRobots } from "@/lib/site";
+import { noIndexMetadata } from "@/lib/site";
 
-export const metadata = {
+export const metadata = noIndexMetadata({
   title: "Hands",
-  robots: noIndexRobots,
-  alternates: {
-    canonical: "/hands",
-  },
-};
+  description: "Internal Knob Studio hand-tracking experiment.",
+  path: "/hands",
+});
 
 export default function HandsLayout({ children }) {
   return children;
