@@ -1,7 +1,7 @@
 {
   "name": "Knob Studio",
   "short_name": "Knob Studio",
-  "description": "Professional Recording Studio - Creative digital experiences and interactive design",
+  "description": "Knob Studio is a music video production company based in Toronto, Canada.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",

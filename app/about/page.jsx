@@ -11,6 +11,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#F0F1FA] via-white to-[#F0F1FA] dark:from-black dark:via-gray-900 dark:to-black text-gray-900 dark:text-white overflow-x-hidden">
       <Navbar />
+      <main>
       <EarthHero />
 
       {/* Content Section */}
@@ -61,9 +62,9 @@ const About = () => {
               transition={{ duration: 0.7, delay: 0.15 }}
               className="space-y-5 sm:space-y-6 md:space-y-7"
             >
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
                 What We Offer
-              </h3>
+              </h2>
               <div className="space-y-4 sm:space-y-5">
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-gray-900 dark:bg-white rounded-full mt-2 flex-shrink-0" />
@@ -104,7 +105,7 @@ const About = () => {
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 shadow-[0_18px_40px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
               <Image
                 src="/textures/4972058170432270204.jpg"
-                alt="Featured work highlight 1"
+                alt="Film crew lighting a performer on a studio set"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 33vw"
@@ -114,7 +115,7 @@ const About = () => {
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 shadow-[0_18px_40px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.35)] md:translate-y-6">
               <Image
                 src="/textures/4972058170432270205.jpg"
-                alt="Featured work highlight 2"
+                alt="Camera crane crew on a street film set"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 33vw"
@@ -124,7 +125,7 @@ const About = () => {
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 shadow-[0_18px_40px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
               <Image
                 src="/textures/4972058170432270206.jpg"
-                alt="Featured work highlight 3"
+                alt="Crew preparing a shot on a studio soundstage"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 33vw"
@@ -236,6 +237,7 @@ const About = () => {
           </motion.p>
       </div>
       </section>
+      </main>
     </div>
   );
 };

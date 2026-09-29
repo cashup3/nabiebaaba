@@ -101,7 +101,7 @@ const Services = () => {
       id: 10,
       title: "Photoshoots",
       description: "Professional photography services for portraits, product shots, events, and creative campaigns that capture your vision.",
-      image: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=1200&q=80",
+      image: "/textures/4972058170432270204.jpg",
       gradient: "from-violet-400 to-purple-600 dark:from-black dark:to-gray-900",
       badge: "Active",
       badgeColor: "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200",
@@ -123,8 +123,7 @@ const Services = () => {
     <div className="min-h-screen bg-gradient-to-br from-[#F0F1FA] via-white to-[#F0F1FA] dark:from-black dark:via-gray-900 dark:to-black text-gray-900 dark:text-white">
       <Navbar />
       
-      {/* Main Content */}
-      <div className="pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-12 sm:pb-16 md:pb-20 lg:pb-24 px-4 sm:px-6 lg:px-8">
+      <main className="pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-12 sm:pb-16 md:pb-20 lg:pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           
           {/* Header */}
@@ -135,10 +134,10 @@ const Services = () => {
             className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20"
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4 md:mb-6 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent leading-tight">
-              SERVICES
+              Music Video Production Services
             </h1>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2">
-              Our comprehensive creative services and production capabilities
+              Music videos, brand films, and related production services from our studio in Toronto, Canada.
             </p>
           </motion.div>
 
@@ -151,7 +150,7 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg sm:rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-8 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300 group cursor-pointer shadow-md hover:shadow-xl dark:shadow-none"
+                className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg sm:rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-8 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300 group shadow-md hover:shadow-xl dark:shadow-none"
               >
                 {/* Icon/Image Area */}
                 <div className={`relative w-full h-40 sm:h-48 md:h-56 lg:h-64 rounded-lg sm:rounded-xl mb-4 sm:mb-5 md:mb-6 overflow-hidden group-hover:scale-105 transition-transform duration-300`}>
@@ -171,9 +170,9 @@ const Services = () => {
 
                 {/* Content */}
                 <div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 text-gray-900 dark:text-white">
+                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 text-gray-900 dark:text-white">
                     {project.title}
-                  </h3>
+                  </h2>
                   <p className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 mb-4 sm:mb-5 md:mb-6 leading-relaxed">
                     {project.description}
                   </p>
@@ -193,9 +192,9 @@ const Services = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="text-center bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg sm:rounded-xl md:rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-lg dark:shadow-none"
           >
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 md:mb-6 text-gray-900 dark:text-white">
+            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 md:mb-6 text-gray-900 dark:text-white">
               Ready to start your project?
-            </h2>
+            </h3>
             <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
               Let's bring your vision to life with professional video production that makes an impact.
             </p>
@@ -208,7 +207,7 @@ const Services = () => {
           </motion.div>
 
         </div>
-      </div>
+      </main>
     </div>
   );
 };
