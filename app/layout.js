@@ -1,9 +1,38 @@
 import { Playfair_Display, Space_Grotesk } from 'next/font/google'
 import './globals.css'
+import {
+  defaultDescription,
+  defaultTitle,
+  ogImage,
+  siteName,
+  siteUrl,
+} from '@/lib/site'
 
 export const metadata = {
-  title: 'Knob Studio',
-  description: 'Creative digital experiences and interactive design',
+  metadataBase: new URL(siteUrl),
+  title: {
+    absolute: defaultTitle,
+    template: `%s | ${siteName}`,
+  },
+  description: defaultDescription,
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: defaultTitle,
+    description: defaultDescription,
+    url: '/',
+    siteName,
+    type: 'website',
+    locale: 'en_CA',
+    images: [ogImage],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [ogImage.url],
+  },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
@@ -23,7 +52,11 @@ export const metadata = {
     statusBarStyle: 'default',
     title: 'Knob Studio',
   },
-  viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no',
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
 }
 
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', weight: ['400','700','800'] })

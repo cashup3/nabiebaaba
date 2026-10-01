@@ -13,7 +13,7 @@ const Header = () => {
 
   const horizontalCallback = open => api.start({ transform: `translateX(${open ? '20%' : '0%'})` });
   return (
-    <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-[9rem] w-full z-10 relative px-4 sm:px-6 lg:px-8">
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-[9rem] w-full z-10 relative px-4 sm:px-6 lg:px-8">
       <Trail callback={horizontalCallback}>
         <a.div className="flex flex-wrap" style={horizontal}>
           <div>Beyond&nbsp;</div>
@@ -24,7 +24,7 @@ const Header = () => {
           <div>Reach&nbsp;</div>
         </div>
       </Trail>
-    </div>
+    </h1>
   );
 };
 

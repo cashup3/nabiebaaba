@@ -5,7 +5,6 @@ import React, { useEffect, useRef, useState, useCallback } from "react";
 
 const Menu = ({ open, onOutsideClick, onLinkClick }) => {
   const ref = useRef();
-  const timeoutRef = useRef(null);
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
@@ -35,19 +34,9 @@ const Menu = ({ open, onOutsideClick, onLinkClick }) => {
       return () => {
         clearTimeout(timer);
         document.removeEventListener("click", handleChildClick);
-        // Cleanup timeout if component unmounts
-        if (timeoutRef.current) {
-          clearTimeout(timeoutRef.current);
-        }
       };
     } else {
       justOpenedRef.current = false;
-      return () => {
-        // Cleanup timeout if component unmounts
-        if (timeoutRef.current) {
-          clearTimeout(timeoutRef.current);
-        }
-      };
     }
   }, [open, handleChildClick]);
 
@@ -59,24 +48,7 @@ const Menu = ({ open, onOutsideClick, onLinkClick }) => {
     from: { y: 100, opacity: 0, transform: "rotate(-20deg)" },
   }));
   
-  const [hidden, setHidden] = useState(!open);
-  
   useEffect(() => {
-    // Cleanup previous timeout
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-
-    if (open === false) {
-      // Hide menu after animation completes (500ms)
-      timeoutRef.current = setTimeout(() => {
-        setHidden(true);
-      }, 500);
-    } else {
-      // Show menu immediately when opening
-      setHidden(false);
-    }
-
     contentsApi.start({
       y: open ? 0 : 100,
       opacity: open ? 1 : 0,
@@ -89,25 +61,23 @@ const Menu = ({ open, onOutsideClick, onLinkClick }) => {
       transform: open ? `rotate(0deg)` : `rotate(-20deg)`,
     });
 
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
   }, [open, contentsApi, newsApi]);
 
   return (
     <>
-      {!hidden && (
-        <>
-          <div
-            className="fixed inset-0 z-40 bg-black/10 dark:bg-black/40 backdrop-blur-[1px]"
-            onClick={onOutsideClick}
-          />
-          <div
-            className="absolute top-[4rem] right-0 z-50 w-[calc(100vw-2rem)] lg:w-[20rem] max-w-[20rem]"
-            ref={ref}
-          >
+      {open && (
+        <div
+          className="fixed inset-0 z-40 bg-black/10 dark:bg-black/40 backdrop-blur-[1px]"
+          onClick={onOutsideClick}
+        />
+      )}
+      <div
+        className={`absolute top-[4rem] right-0 z-50 w-[calc(100vw-2rem)] lg:w-[20rem] max-w-[20rem] ${
+          open ? "" : "pointer-events-none"
+        }`}
+        ref={ref}
+        aria-hidden={open ? undefined : true}
+      >
           {/* Contents */}
           <a.div
             className="rounded-xl bg-white dark:bg-gray-800 flex flex-col font-Aeonik text-2xl lg:text-3xl p-6 lg:p-8 text-gray-900 dark:text-white"
@@ -214,9 +184,7 @@ const Menu = ({ open, onOutsideClick, onLinkClick }) => {
               )}
             </form>
           </a.div>
-          </div>
-        </>
-      )}
+      </div>
     </>
   );
 };

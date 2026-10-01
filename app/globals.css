@@ -62,14 +62,17 @@
 @font-face{
   font-family: "Aeonik";
   src: url('/fonts/Aeonik/Aeonik-Regular.otf') format('opentype');
+  font-display: swap;
 }
 @font-face{
   font-family: "AeonikBold";
   src: url('/fonts/Aeonik/Aeonik-Bold.otf') format('opentype');
+  font-display: swap;
 }
 @font-face{
   font-family: "AeonikMedium";
   src: url('/fonts/Aeonik/Aeonik-Medium.otf') format('opentype');
+  font-display: swap;
 }
  
 .container {

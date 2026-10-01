@@ -108,10 +108,11 @@ const LetsTalkPage = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                    <label htmlFor="lets-talk-name" className="block text-xs sm:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
                       Name
                     </label>
                     <input
+                      id="lets-talk-name"
                       type="text"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
@@ -120,10 +121,11 @@ const LetsTalkPage = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                    <label htmlFor="lets-talk-email" className="block text-xs sm:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
                       Email
                     </label>
                     <input
+                      id="lets-talk-email"
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
@@ -132,10 +134,11 @@ const LetsTalkPage = () => {
                     />
                   </div>
                   <div className="sm:col-span-2">
-                    <label className="block text-xs sm:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                    <label htmlFor="lets-talk-location" className="block text-xs sm:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
                       Location
                     </label>
                     <select
+                      id="lets-talk-location"
                       value={location}
                       onChange={(e) => setLocation(e.target.value)}
                       className="w-full px-3 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
@@ -157,10 +160,11 @@ const LetsTalkPage = () => {
                 </div>
 
                 <div className="mb-6">
-                  <label className="block text-xs sm:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                  <label htmlFor="lets-talk-message" className="block text-xs sm:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
                     Tell us about your project
                   </label>
                   <textarea
+                    id="lets-talk-message"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Type your request here..."
