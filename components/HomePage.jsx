@@ -9,6 +9,7 @@ import ScrollText from "@/components/Navbar/ScrollText";
 import FeaturedVideo from "@/components/Featured/FeaturedVideo";
 import FeaturedWork from "@/components/FeaturedWork/FeaturedWork";
 import Connection from "@/components/ConnectingSection/Connection";
+import BusinessFacts from "@/components/BusinessFacts";
 import { Planets } from "@/components/Pipes/Planets";
 import Image from "next/image";
 import Link from "next/link";
@@ -49,6 +50,7 @@ export default function HomePage() {
           <FeaturedVideo />
           <FeaturedWork />
           <Connection className="" />
+          <BusinessFacts />
         </main>
 
         <footer className="w-full bg-black text-white py-8 sm:py-10 md:py-12 px-4 sm:px-6 lg:px-8 xl:px-20 relative z-10">
@@ -67,6 +69,12 @@ export default function HomePage() {
                       <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
                     </svg>
                     info@knobstud.com
+                  </a>
+                  <a
+                    href="tel:+15149293511"
+                    className="mt-2 text-blue-400 hover:text-blue-300 transition-colors duration-300 text-sm sm:text-base flex items-center justify-center sm:justify-start"
+                  >
+                    +1 (514) 929-3511
                   </a>
                 </div>
               </div>

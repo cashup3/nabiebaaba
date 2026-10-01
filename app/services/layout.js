@@ -1,19 +1,5 @@
 import JsonLd from "@/components/seo/JsonLd";
-import { pageMetadata } from "@/lib/site";
-
-const services = [
-  "Commercial & Brand Videos",
-  "Corporate & Promotional Films",
-  "Music Videos",
-  "Social Media Content",
-  "Post-Production",
-  "Web Design",
-  "DSPs Services",
-  "Advertising",
-  "Public Relations",
-  "Photoshoots",
-  "Creative Direction",
-];
+import { pageMetadata, services } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "Music Video Production Services",
