@@ -53,13 +53,13 @@ const EarthHero = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-gray-900 dark:text-white">
             Music video production
             <br className="hidden sm:block" />
-            in Toronto, Canada.
+            in Canada.
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl font-medium text-gray-800 dark:text-gray-200">
-            15 years of experience. Endless creativity.
+            Based in Toronto. More than 15 years in the studio.
           </p>
           <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-xl">
-            KNOB is a full-service video production company built on passion, precision, and storytelling.
+            Artists and brands call us when the song needs a film, whether the shoot stays in Toronto or moves somewhere else in Canada.
           </p>
         </div>
 

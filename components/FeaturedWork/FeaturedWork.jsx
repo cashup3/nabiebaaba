@@ -19,6 +19,7 @@ const featuredStills = [
 
 const FeaturedWork = ({ headingLevel = "h2" }) => {
   const Heading = headingLevel === "h1" ? "h1" : "h2";
+  const heading = headingLevel === "h1" ? "Music videos from Toronto" : "Music videos from the studio";
   const containerRef = useRef(null);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
@@ -62,11 +63,9 @@ const FeaturedWork = ({ headingLevel = "h2" }) => {
   return (
     <div ref={containerRef} className="w-full h-auto px-4 sm:px-6 lg:px-8 xl:px-0 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
       <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-center gap-4 sm:gap-6 lg:gap-0 mb-6 sm:mb-8 lg:mb-0">
-        <Heading className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl lg:text-[9rem] font-bold">Featured Work</Heading>
-        <p className="text-[10px] sm:text-xs md:text-sm font-semibold max-w-xs sm:max-w-sm lg:max-w-none leading-relaxed">
-          A SELECTION OF OUR MOST PASSIONATELY <br className="hidden sm:block" />
-          CRAFTED WORKS WITH FORWARD THINKING
-          <br className="hidden sm:block" /> CLIENTS AND FRIENDS OVER THE YEARS
+        <Heading className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold">{heading}</Heading>
+        <p className="text-xs sm:text-sm md:text-base max-w-xs sm:max-w-sm lg:max-w-md leading-relaxed">
+          Stills from music video production in Toronto, and from jobs we have taken across Canada.
         </p>
       </div>
       <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8 perspective-1000 w-full h-auto transform-style-3d mt-6 sm:mt-8 lg:mt-0">

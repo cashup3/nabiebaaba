@@ -10,7 +10,7 @@ export const dynamic = "force-static";
 const routes = [
   {
     path: "/",
-    lastModified: "2026-09-29",
+    lastModified: "2026-10-01",
     changeFrequency: "weekly",
     priority: 1,
     images: [
@@ -23,14 +23,14 @@ const routes = [
   },
   {
     path: "/services",
-    lastModified: "2026-09-29",
+    lastModified: "2026-10-01",
     changeFrequency: "monthly",
     priority: 0.8,
     images: ["/textures/4972058170432270204.jpg"],
   },
   {
     path: "/featured-works",
-    lastModified: "2026-09-29",
+    lastModified: "2026-10-01",
     changeFrequency: "monthly",
     priority: 0.8,
     images: [
@@ -41,7 +41,7 @@ const routes = [
   },
   {
     path: "/about",
-    lastModified: "2026-09-29",
+    lastModified: "2026-10-01",
     changeFrequency: "monthly",
     priority: 0.7,
     images: [
@@ -52,7 +52,7 @@ const routes = [
   },
   {
     path: "/contact",
-    lastModified: "2026-09-29",
+    lastModified: "2026-10-01",
     changeFrequency: "monthly",
     priority: 0.6,
   },

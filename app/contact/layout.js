@@ -1,9 +1,9 @@
 import { pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
-  title: "Contact Our Toronto Studio",
+  title: "Book Music Video Production in Toronto",
   description:
-    "Contact Knob Studio in Toronto, Canada by email at info@knobstud.com or phone at +1 (514) 929-3511.",
+    "Start music video production in Toronto with Knob Studio. Email info@knobstud.com or call +1 (514) 929-3511. We also work across Canada.",
   path: "/contact",
 });
 

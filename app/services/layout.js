@@ -2,9 +2,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { pageMetadata, services } from "@/lib/site";
 
 export const metadata = pageMetadata({
-  title: "Music Video Production Services",
+  title: "Music Video Production Services in Toronto",
   description:
-    "Music videos, brand films, post-production, and related creative services from Knob Studio in Toronto, Canada.",
+    "Music video production services from Knob Studio in Toronto, for artists and brands across Canada.",
   path: "/services",
 });
 

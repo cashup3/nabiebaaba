@@ -1,9 +1,9 @@
 import { pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
-  title: "Featured Music Video Work",
+  title: "Music Videos from Toronto",
   description:
-    "Selected production stills from Knob Studio music video and film shoots.",
+    "Stills from Knob Studio music video production in Toronto and from shoots across Canada.",
   path: "/featured-works",
 });
 

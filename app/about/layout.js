@@ -1,9 +1,9 @@
 import { pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
-  title: "About Our Music Video Work",
+  title: "Music Video Production in Canada",
   description:
-    "Knob Studio is a music video production company in Toronto, Canada, with more than 15 years of experience in music videos and film.",
+    "Knob Studio is based in Toronto and handles music video production across Canada, with more than 15 years in the studio.",
   path: "/about",
 });
 

@@ -134,10 +134,10 @@ const Services = () => {
             className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20"
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4 md:mb-6 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent leading-tight">
-              Music Video Production Services
+              Music video production services
             </h1>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2">
-              Music videos, brand films, and related production services from our studio in Toronto, Canada.
+              Shot from our studio in Toronto, for artists and brands across Canada. Music videos first, then the brand films and finishing that go with them.
             </p>
           </motion.div>
 

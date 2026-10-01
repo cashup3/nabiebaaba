@@ -71,10 +71,10 @@ const Contact = () => {
             className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20"
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4 md:mb-6 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent leading-tight">
-              Get In Touch
+              Start a music video in Toronto
             </h1>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2">
-              Have a music video or production project in mind? Knob Studio is based in Toronto, Canada.
+              Send the song. We produce music videos in Toronto and take projects across Canada.
             </p>
           </motion.div>
 

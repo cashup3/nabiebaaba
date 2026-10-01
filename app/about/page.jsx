@@ -27,12 +27,11 @@ const About = () => {
               className="space-y-4 sm:space-y-6 md:space-y-7"
             >
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
-                Full-Service Video Production
+                From the song to the final cut
               </h2>
               <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                KNOB is a full-service video production company built on passion, precision, and storytelling.
-                With more than 15 years in the industry, we&apos;ve worked across commercials, brand films,
-                music videos, documentaries, and digital content, always focused on quality and impact.
+                Music video production in Canada is the job we know best. With more than 15 years in the studio,
+                we&apos;ve also made commercials, brand films, documentaries, and digital clips, always with the same care for the picture.
               </p>
               <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 The studio started as a small crew of filmmakers who believed every brand had a story worth

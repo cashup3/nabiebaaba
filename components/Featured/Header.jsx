@@ -1,30 +1,15 @@
-import { a, useSpring } from "@react-spring/web";
-import { Trail } from "./TrailText";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const Header = () => {
-  const [open, set] = useState();
-
-  useEffect(() => {
-    set(true);
-  }, []);
-
-  const [horizontal, api] = useSpring(() => ({ from: { transform: 'translateX(0%)' } }));
-
-  const horizontalCallback = open => api.start({ transform: `translateX(${open ? '20%' : '0%'})` });
   return (
-    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-[9rem] w-full z-10 relative px-4 sm:px-6 lg:px-8">
-      <Trail callback={horizontalCallback}>
-        <a.div className="flex flex-wrap" style={horizontal}>
-          <div>Beyond&nbsp;</div>
-          <div>Visions&nbsp;</div>
-        </a.div>
-        <div className="flex flex-wrap">
-          <div>Within&nbsp;</div>
-          <div>Reach&nbsp;</div>
-        </div>
-      </Trail>
-    </h1>
+    <div className="w-full z-10 relative px-4 sm:px-6 lg:px-8">
+      <p className="text-xs sm:text-sm uppercase tracking-[0.25em] mb-4">
+        Beyond Visions Within Reach
+      </p>
+      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05]">
+        Music video production in Toronto
+      </h1>
+    </div>
   );
 };
 
