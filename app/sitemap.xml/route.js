@@ -56,6 +56,12 @@ const routes = [
     changeFrequency: "monthly",
     priority: 0.6,
   },
+  {
+    path: "/faq",
+    lastModified: "2026-10-01",
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
 ];
 
 function absoluteUrl(path) {

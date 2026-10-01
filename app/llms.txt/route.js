@@ -19,6 +19,7 @@ function renderLlmsTxt() {
     ["Services", "/services", "Music videos, brand films, and related production services."],
     ["Featured work", "/featured-works", "Selected music video and production stills."],
     ["Contact", "/contact", `Email ${contactEmail} or call ${contactPhone}.`],
+    ["FAQ", "/faq", "Frequently asked questions about the studio, services, and how to start a project."],
   ];
 
   const lines = [

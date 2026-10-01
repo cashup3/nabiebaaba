@@ -1,7 +1,6 @@
 import HomePage from "@/components/HomePage";
 import JsonLd from "@/components/seo/JsonLd";
 import {
-  businessFacts,
   contactEmail,
   contactPhone,
   defaultDescription,
@@ -55,24 +54,10 @@ const organizationJsonLd = {
   sameAs: socialProfiles,
 };
 
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: businessFacts.map(({ question, answer }) => ({
-    "@type": "Question",
-    name: question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: answer,
-    },
-  })),
-};
-
 export default function Page() {
   return (
     <>
       <JsonLd data={organizationJsonLd} />
-      <JsonLd data={faqJsonLd} />
       <HomePage />
     </>
   );

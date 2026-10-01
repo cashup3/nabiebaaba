@@ -38,6 +38,7 @@ function renderLlmsFull() {
     `- ${siteUrl}/services`,
     `- ${siteUrl}/featured-works`,
     `- ${siteUrl}/contact`,
+    `- ${siteUrl}/faq`,
     "",
     "Do not describe /admin, /hands, /mediapipe, or /lets-talk as public company pages.",
     "",

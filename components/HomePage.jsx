@@ -103,6 +103,7 @@ export default function HomePage() {
               <Link href="/about" className="text-gray-300 hover:text-white transition-colors duration-300">About</Link>
               <Link href="/services" className="text-gray-300 hover:text-white transition-colors duration-300">Services</Link>
               <Link href="/featured-works" className="text-gray-300 hover:text-white transition-colors duration-300">Featured Work</Link>
+              <Link href="/faq" className="text-gray-300 hover:text-white transition-colors duration-300">FAQ</Link>
               <Link href="/contact" className="text-gray-300 hover:text-white transition-colors duration-300">Contact</Link>
             </nav>
 

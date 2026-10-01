@@ -93,6 +93,9 @@ const Menu = ({ open, onOutsideClick, onLinkClick }) => {
             <div className="py-3">
               <Link href="/services" onClick={onLinkClick} className="hover:opacity-70 transition-opacity">SERVICES</Link>
             </div>
+            <div className="py-3">
+              <Link href="/faq" onClick={onLinkClick} className="hover:opacity-70 transition-opacity">FAQ</Link>
+            </div>
             <div className="pt-3">
               <Link href="/contact" onClick={onLinkClick} className="hover:opacity-70 transition-opacity">CONTACT</Link>
             </div>
