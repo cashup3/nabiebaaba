@@ -31,7 +31,7 @@ export default function BusinessFacts() {
           Frequently asked questions
         </h2>
         <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-8">
-          Short answers about Knob Studio, a music video production company in Toronto, Canada.
+          A few things people ask us before a project.
         </p>
         <FaqItems items={preview} />
         <Link

@@ -16,7 +16,7 @@ export default function FaqPage() {
             Frequently asked questions
           </h1>
           <p className="mt-4 text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Answers about Knob Studio, a music video production company in Toronto, Canada.
+            A few things people ask before they call. If yours isn&apos;t here, just write us.
           </p>
           <div className="mt-10">
             <FaqItems items={businessFacts} />

@@ -4,7 +4,7 @@ import { businessFacts, pageMetadata } from "@/lib/site";
 export const metadata = pageMetadata({
   title: "Frequently Asked Questions",
   description:
-    "Answers about Knob Studio, a music video production company in Toronto, Canada, including location, services, and how to start a project.",
+    "Questions people ask Knob Studio before a music video in Toronto, from cost and timing to how to send a song.",
   path: "/faq",
 });
 
