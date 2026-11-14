@@ -4,7 +4,7 @@ import { absoluteUrl, breadcrumbJsonLd, businessFacts, pageMetadata } from "@/li
 export const metadata = pageMetadata({
   title: "Frequently Asked Questions",
   description:
-    "Questions people ask Knob Studio before a music video in Toronto, from cost and timing to how to send a song.",
+    "What a Knob Studio music video costs, how long it takes, and how to send a song. Straight answers from the Toronto studio.",
   path: "/faq",
 });
 

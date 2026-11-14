@@ -14,11 +14,11 @@ const routes = [
     changeFrequency: "weekly",
     priority: 1,
     images: [
-      "/q.jpg",
-      "/textures/555.jpg",
-      "/textures/4972058170432270203.jpg",
-      "/textures/4972058170432270207.jpg",
-      "/textures/4972058170432270208.jpg",
+      ["/q.jpg", "Collage of Knob Studio music video and production stills"],
+      ["/textures/555.jpg", "Poster frame from a Knob Studio music video"],
+      ["/textures/4972058170432270203.jpg", "Camera operator beside a cinema camera on a studio dolly"],
+      ["/textures/4972058170432270207.jpg", "Film crew lighting a night shoot inside a warehouse"],
+      ["/textures/4972058170432270208.jpg", "Virtual production stage with a lunar backdrop"],
     ],
   },
   {
@@ -26,7 +26,7 @@ const routes = [
     lastModified: "2026-11-14",
     changeFrequency: "monthly",
     priority: 0.8,
-    images: ["/textures/4972058170432270204.jpg"],
+    images: [["/textures/4972058170432270204.jpg", "Film crew lighting a performer on a studio set"]],
   },
   {
     path: "/featured-works",
@@ -34,9 +34,9 @@ const routes = [
     changeFrequency: "monthly",
     priority: 0.8,
     images: [
-      "/textures/4972058170432270203.jpg",
-      "/textures/4972058170432270207.jpg",
-      "/textures/4972058170432270208.jpg",
+      ["/textures/4972058170432270203.jpg", "Camera operator beside a cinema camera on a studio dolly"],
+      ["/textures/4972058170432270207.jpg", "Film crew lighting a night shoot inside a warehouse"],
+      ["/textures/4972058170432270208.jpg", "Virtual production stage with a lunar backdrop"],
     ],
   },
   {
@@ -45,9 +45,9 @@ const routes = [
     changeFrequency: "monthly",
     priority: 0.7,
     images: [
-      "/textures/4972058170432270204.jpg",
-      "/textures/4972058170432270205.jpg",
-      "/textures/4972058170432270206.jpg",
+      ["/textures/4972058170432270204.jpg", "Film crew lighting a performer on a studio set"],
+      ["/textures/4972058170432270205.jpg", "Camera crane crew on a street film set"],
+      ["/textures/4972058170432270206.jpg", "Crew preparing a shot on a studio soundstage"],
     ],
   },
   {
@@ -79,7 +79,10 @@ function renderSitemap() {
     lastModified: route.lastModified,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
-    images: (route.images || []).map(absoluteUrl),
+    images: (route.images || []).map(([path, title]) => ({
+      loc: absoluteUrl(path),
+      title,
+    })),
   }));
   const hasImages = entries.some((entry) => entry.images.length > 0);
   const imageNamespace = hasImages
@@ -95,7 +98,8 @@ function renderSitemap() {
     if (entry.images.length) {
       for (const image of entry.images) {
         xml += "<image:image>\n";
-        xml += `<image:loc>${escapeXml(image)}</image:loc>\n`;
+        xml += `<image:loc>${escapeXml(image.loc)}</image:loc>\n`;
+        xml += `<image:title>${escapeXml(image.title)}</image:title>\n`;
         xml += "</image:image>\n";
       }
     }

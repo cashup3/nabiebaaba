@@ -4,7 +4,7 @@ import { absoluteUrl, breadcrumbJsonLd, organizationId, pageMetadata, services }
 export const metadata = pageMetadata({
   title: "Music Video Production Services in Toronto",
   description:
-    "Music video production services from Knob Studio in Toronto, for artists and brands across Canada.",
+    "Music videos, brand films, photoshoots, and post-production from Knob Studio in Toronto. The same crew takes projects across Canada.",
   path: "/services",
 });
 
