@@ -42,9 +42,9 @@ export default function FullScreenLoader({
 
       {/* Title */}
       <div className="relative z-10 text-center -mt-8 sm:-mt-12 mb-6">
-        <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-widest font-[var(--font-playfair)]">
+        <p className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-widest font-[var(--font-playfair)]">
           {title}
-        </h1>
+        </p>
       </div>
 
       {/* Animated lines, word by word */}

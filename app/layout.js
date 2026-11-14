@@ -1,9 +1,12 @@
 import { Playfair_Display, Space_Grotesk } from 'next/font/google'
 import './globals.css'
+import JsonLd from '@/components/seo/JsonLd'
 import {
   defaultDescription,
   defaultTitle,
+  indexRobots,
   ogImage,
+  siteGraph,
   siteName,
   siteUrl,
 } from '@/lib/site'
@@ -27,11 +30,12 @@ export const metadata = {
     locale: 'en_CA',
     images: [ogImage],
   },
+  robots: indexRobots,
   twitter: {
     card: 'summary_large_image',
     title: defaultTitle,
     description: defaultDescription,
-    images: [ogImage.url],
+    images: [ogImage],
   },
   icons: {
     icon: [
@@ -64,14 +68,16 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en-CA">
       <head>
-        <link rel="alternate" type="text/plain" href="/llms.txt" title="Knob Studio facts" />
         <meta name="theme-color" content="#000000" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
-      <body className={`dark ${playfair.variable} ${spaceGrotesk.variable} font-Aeonik`}>{children}</body>
+      <body className={`dark ${playfair.variable} ${spaceGrotesk.variable} font-Aeonik`}>
+        <JsonLd data={siteGraph} />
+        {children}
+      </body>
     </html>
   )
 }

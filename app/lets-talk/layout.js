@@ -6,6 +6,7 @@ export const metadata = noIndexMetadata({
     "Send Knob Studio a project request by form, WhatsApp, or phone.",
   path: "/lets-talk",
   canonical: "/contact",
+  follow: true,
 });
 
 export default function LetsTalkLayout({ children }) {

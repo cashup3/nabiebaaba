@@ -1,16 +1,16 @@
 import { NextResponse } from "next/server";
-import { siteUrl } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 
 // Next.js 14.0.4 ignores MetadataRoute `images` and runs sitemap.js per request.
-// This static handler is /sitemap.xml. lastModified is the UTC date of the latest
-// git commit for that page file (8d86266, 2026-09-29), not the current time.
+// This static handler is /sitemap.xml. lastModified is the UTC date of the
+// canonical-host fix, not the current time.
 
 export const dynamic = "force-static";
 
 const routes = [
   {
     path: "/",
-    lastModified: "2026-10-01",
+    lastModified: "2026-11-14",
     changeFrequency: "weekly",
     priority: 1,
     images: [
@@ -23,14 +23,14 @@ const routes = [
   },
   {
     path: "/services",
-    lastModified: "2026-10-01",
+    lastModified: "2026-11-14",
     changeFrequency: "monthly",
     priority: 0.8,
     images: ["/textures/4972058170432270204.jpg"],
   },
   {
     path: "/featured-works",
-    lastModified: "2026-10-01",
+    lastModified: "2026-11-14",
     changeFrequency: "monthly",
     priority: 0.8,
     images: [
@@ -41,7 +41,7 @@ const routes = [
   },
   {
     path: "/about",
-    lastModified: "2026-10-01",
+    lastModified: "2026-11-14",
     changeFrequency: "monthly",
     priority: 0.7,
     images: [
@@ -52,21 +52,17 @@ const routes = [
   },
   {
     path: "/contact",
-    lastModified: "2026-10-01",
+    lastModified: "2026-11-14",
     changeFrequency: "monthly",
     priority: 0.6,
   },
   {
     path: "/faq",
-    lastModified: "2026-10-01",
+    lastModified: "2026-11-14",
     changeFrequency: "monthly",
     priority: 0.7,
   },
 ];
-
-function absoluteUrl(path) {
-  return new URL(path, siteUrl).href;
-}
 
 function escapeXml(value) {
   return String(value)

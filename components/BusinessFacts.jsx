@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { businessFacts } from "@/lib/site";
 
-export function FaqItems({ items }) {
+export function FaqItems({ items, headingLevel = "h2" }) {
+  const Heading = headingLevel;
+
   return (
     <div className="space-y-4">
       {items.map(({ question, answer }) => (
@@ -9,9 +11,9 @@ export function FaqItems({ items }) {
           key={question}
           className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-white/5 px-5 py-5 sm:px-6"
         >
-          <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
+          <Heading className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
             {question}
-          </h2>
+          </Heading>
           <p className="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
             {answer}
           </p>
@@ -33,7 +35,7 @@ export default function BusinessFacts() {
         <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-8">
           A few things people ask us before a project.
         </p>
-        <FaqItems items={preview} />
+        <FaqItems items={preview} headingLevel="h3" />
         <Link
           href="/faq"
           className="inline-block mt-8 text-sm sm:text-base font-semibold underline underline-offset-4"

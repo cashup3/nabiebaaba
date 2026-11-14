@@ -1,5 +1,5 @@
 import JsonLd from "@/components/seo/JsonLd";
-import { businessFacts, pageMetadata } from "@/lib/site";
+import { absoluteUrl, breadcrumbJsonLd, businessFacts, pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "Frequently Asked Questions",
@@ -11,6 +11,8 @@ export const metadata = pageMetadata({
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "@id": `${absoluteUrl("/faq")}#faq`,
+  url: absoluteUrl("/faq"),
   mainEntity: businessFacts.map(({ question, answer }) => ({
     "@type": "Question",
     name: question,
@@ -21,10 +23,15 @@ const faqJsonLd = {
   })),
 };
 
+const breadcrumb = breadcrumbJsonLd([
+  { name: "Home", path: "/" },
+  { name: "FAQ", path: "/faq" },
+]);
+
 export default function FaqLayout({ children }) {
   return (
     <>
-      <JsonLd data={faqJsonLd} />
+      <JsonLd data={[faqJsonLd, breadcrumb]} />
       {children}
     </>
   );
