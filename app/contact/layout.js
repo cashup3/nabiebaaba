@@ -1,4 +1,5 @@
-import { pageMetadata } from "@/lib/site";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "Book Music Video Production in Toronto",
@@ -7,6 +8,16 @@ export const metadata = pageMetadata({
   path: "/contact",
 });
 
+const breadcrumb = breadcrumbJsonLd([
+  { name: "Home", path: "/" },
+  { name: "Contact", path: "/contact" },
+]);
+
 export default function ContactLayout({ children }) {
-  return children;
+  return (
+    <>
+      <JsonLd data={breadcrumb} />
+      {children}
+    </>
+  );
 }

@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 const FeaturedVideo = () => {
   const videoRef = useRef(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const [isVideoVisible, setIsVideoVisible] = useState(false);
   const [videoError, setVideoError] = useState(false);
 
   // Handle video errors
@@ -22,22 +21,6 @@ const FeaturedVideo = () => {
       videoRef.current.load();
     }
   };
-
-  // Intersection Observer to detect when video is visible
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVideoVisible(entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
-
-    if (videoRef.current) {
-      observer.observe(videoRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20 lg:mb-24">
@@ -64,11 +47,7 @@ const FeaturedVideo = () => {
           onError={handleVideoError}
           onLoadStart={() => setVideoError(false)}
         >
-          {isVideoLoaded && isVideoVisible && (
-            <>
-              <source src="/videos/KnobStudio_Ad1.mp4" type="video/mp4" />
-            </>
-          )}
+          <source src="/videos/KnobStudio_Ad1.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         

@@ -1,16 +1,18 @@
 import JsonLd from "@/components/seo/JsonLd";
-import { businessFacts, pageMetadata } from "@/lib/site";
+import { absoluteUrl, breadcrumbJsonLd, businessFacts, pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "Frequently Asked Questions",
   description:
-    "Questions people ask Knob Studio before a music video in Toronto, from cost and timing to how to send a song.",
+    "What a Knob Studio music video costs, how long it takes, and how to send a song. Straight answers from the Toronto studio.",
   path: "/faq",
 });
 
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "@id": `${absoluteUrl("/faq")}#faq`,
+  url: absoluteUrl("/faq"),
   mainEntity: businessFacts.map(({ question, answer }) => ({
     "@type": "Question",
     name: question,
@@ -21,10 +23,15 @@ const faqJsonLd = {
   })),
 };
 
+const breadcrumb = breadcrumbJsonLd([
+  { name: "Home", path: "/" },
+  { name: "FAQ", path: "/faq" },
+]);
+
 export default function FaqLayout({ children }) {
   return (
     <>
-      <JsonLd data={faqJsonLd} />
+      <JsonLd data={[faqJsonLd, breadcrumb]} />
       {children}
     </>
   );

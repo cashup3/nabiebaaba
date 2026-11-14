@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import { motion, useAnimationFrame, useMotionValue, useScroll, useSpring, useTransform, useVelocity } from "framer-motion";
+import { motion, useAnimationFrame, useScroll, useSpring, useTransform, useVelocity } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const featuredStills = [
   {
@@ -19,7 +20,7 @@ const featuredStills = [
 
 const FeaturedWork = ({ headingLevel = "h2" }) => {
   const Heading = headingLevel === "h1" ? "h1" : "h2";
-  const heading = headingLevel === "h1" ? "Music videos from Toronto" : "Music videos from the studio";
+  const heading = headingLevel === "h1" ? "Featured music video stills" : "Music videos from the studio";
   const containerRef = useRef(null);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
@@ -63,7 +64,23 @@ const FeaturedWork = ({ headingLevel = "h2" }) => {
   return (
     <div ref={containerRef} className="w-full h-auto px-4 sm:px-6 lg:px-8 xl:px-0 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
       <div className="flex flex-col lg:flex-row w-full justify-between items-start lg:items-center gap-4 sm:gap-6 lg:gap-0 mb-6 sm:mb-8 lg:mb-0">
-        <Heading className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold">{heading}</Heading>
+        <div>
+          <Heading className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold">{heading}</Heading>
+          {headingLevel !== "h1" ? (
+            <Link href="/featured-works" className="mt-3 inline-block text-sm sm:text-base font-semibold underline underline-offset-4">
+              See all stills
+            </Link>
+          ) : (
+            <a
+              href="https://www.youtube.com/@KnobStudio1"
+              className="mt-3 inline-block text-sm sm:text-base font-semibold underline underline-offset-4"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              More video on YouTube
+            </a>
+          )}
+        </div>
         <p className="text-xs sm:text-sm md:text-base max-w-xs sm:max-w-sm lg:max-w-md leading-relaxed">
           Stills from music video production in Toronto, and from jobs we have taken across Canada.
         </p>

@@ -1,72 +1,68 @@
 import { NextResponse } from "next/server";
-import { siteUrl } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 
 // Next.js 14.0.4 ignores MetadataRoute `images` and runs sitemap.js per request.
-// This static handler is /sitemap.xml. lastModified is the UTC date of the latest
-// git commit for that page file (8d86266, 2026-09-29), not the current time.
+// This static handler is /sitemap.xml. lastModified is the UTC date of the
+// canonical-host fix, not the current time.
 
 export const dynamic = "force-static";
 
 const routes = [
   {
     path: "/",
-    lastModified: "2026-10-01",
+    lastModified: "2026-11-14",
     changeFrequency: "weekly",
     priority: 1,
     images: [
-      "/q.jpg",
-      "/textures/555.jpg",
-      "/textures/4972058170432270203.jpg",
-      "/textures/4972058170432270207.jpg",
-      "/textures/4972058170432270208.jpg",
+      ["/q.jpg", "Collage of Knob Studio music video and production stills"],
+      ["/textures/555.jpg", "Poster frame from a Knob Studio music video"],
+      ["/textures/4972058170432270203.jpg", "Camera operator beside a cinema camera on a studio dolly"],
+      ["/textures/4972058170432270207.jpg", "Film crew lighting a night shoot inside a warehouse"],
+      ["/textures/4972058170432270208.jpg", "Virtual production stage with a lunar backdrop"],
     ],
   },
   {
     path: "/services",
-    lastModified: "2026-10-01",
+    lastModified: "2026-11-14",
     changeFrequency: "monthly",
     priority: 0.8,
-    images: ["/textures/4972058170432270204.jpg"],
+    images: [["/textures/4972058170432270204.jpg", "Film crew lighting a performer on a studio set"]],
   },
   {
     path: "/featured-works",
-    lastModified: "2026-10-01",
+    lastModified: "2026-11-14",
     changeFrequency: "monthly",
     priority: 0.8,
     images: [
-      "/textures/4972058170432270203.jpg",
-      "/textures/4972058170432270207.jpg",
-      "/textures/4972058170432270208.jpg",
+      ["/textures/4972058170432270203.jpg", "Camera operator beside a cinema camera on a studio dolly"],
+      ["/textures/4972058170432270207.jpg", "Film crew lighting a night shoot inside a warehouse"],
+      ["/textures/4972058170432270208.jpg", "Virtual production stage with a lunar backdrop"],
     ],
   },
   {
     path: "/about",
-    lastModified: "2026-10-01",
+    lastModified: "2026-11-14",
     changeFrequency: "monthly",
     priority: 0.7,
     images: [
-      "/textures/4972058170432270204.jpg",
-      "/textures/4972058170432270205.jpg",
-      "/textures/4972058170432270206.jpg",
+      ["/textures/4972058170432270204.jpg", "Film crew lighting a performer on a studio set"],
+      ["/textures/4972058170432270205.jpg", "Camera crane crew on a street film set"],
+      ["/textures/4972058170432270206.jpg", "Crew preparing a shot on a studio soundstage"],
     ],
   },
   {
     path: "/contact",
-    lastModified: "2026-10-01",
+    lastModified: "2026-11-14",
     changeFrequency: "monthly",
     priority: 0.6,
   },
   {
     path: "/faq",
-    lastModified: "2026-10-01",
+    lastModified: "2026-11-14",
     changeFrequency: "monthly",
     priority: 0.7,
   },
 ];
-
-function absoluteUrl(path) {
-  return new URL(path, siteUrl).href;
-}
 
 function escapeXml(value) {
   return String(value)
@@ -83,7 +79,10 @@ function renderSitemap() {
     lastModified: route.lastModified,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
-    images: (route.images || []).map(absoluteUrl),
+    images: (route.images || []).map(([path, title]) => ({
+      loc: absoluteUrl(path),
+      title,
+    })),
   }));
   const hasImages = entries.some((entry) => entry.images.length > 0);
   const imageNamespace = hasImages
@@ -99,7 +98,8 @@ function renderSitemap() {
     if (entry.images.length) {
       for (const image of entry.images) {
         xml += "<image:image>\n";
-        xml += `<image:loc>${escapeXml(image)}</image:loc>\n`;
+        xml += `<image:loc>${escapeXml(image.loc)}</image:loc>\n`;
+        xml += `<image:title>${escapeXml(image.title)}</image:title>\n`;
         xml += "</image:image>\n";
       }
     }

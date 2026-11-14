@@ -1,5 +1,6 @@
 "use client";
 import { Suspense, useRef } from "react";
+import dynamic from "next/dynamic";
 import FullScreenLoader from "@/components/Loaders/FullScreenLoader";
 import Header from "@/components/Featured/Header";
 import SubHeader from "@/components/Featured/SubHeader";
@@ -10,9 +11,22 @@ import FeaturedVideo from "@/components/Featured/FeaturedVideo";
 import FeaturedWork from "@/components/FeaturedWork/FeaturedWork";
 import Connection from "@/components/ConnectingSection/Connection";
 import BusinessFacts from "@/components/BusinessFacts";
-import { Planets } from "@/components/Pipes/Planets";
 import Image from "next/image";
 import Link from "next/link";
+import { studioSummary } from "@/lib/site";
+
+const Planets = dynamic(
+  () => import("@/components/Pipes/Planets").then((mod) => mod.Planets),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        className="h-full w-full rounded-lg sm:rounded-xl lg:rounded-3xl bg-[#141622]"
+        aria-hidden="true"
+      />
+    ),
+  }
+);
 
 export default function HomePage() {
   const ref = useRef(null);
@@ -22,8 +36,25 @@ export default function HomePage() {
         <Navbar />
 
         <main>
+          <div className="pt-28 sm:pt-32 lg:pt-40">
+            <Header />
+            <p className="mt-5 max-w-3xl text-base sm:text-lg leading-relaxed text-gray-700 dark:text-gray-200">
+              {studioSummary}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm sm:text-base font-semibold">
+              <Link href="/services" className="underline underline-offset-4">
+                Production services
+              </Link>
+              <Link href="/featured-works" className="underline underline-offset-4">
+                Featured stills
+              </Link>
+              <Link href="/contact" className="underline underline-offset-4">
+                Start a project
+              </Link>
+            </div>
+          </div>
           <Description />
-          <div className="h-[80vh] flex flex-col pb-4 sm:pb-6 pt-20">
+          <div className="h-[80vh] flex flex-col pb-4 sm:pb-6 pt-6 sm:pt-8">
             <div className="relative h-full">
               <Image
                 src="/q.jpg"
@@ -43,7 +74,6 @@ export default function HomePage() {
           </div>
 
           <div className="h-auto relative mt-12 sm:mt-16 md:mt-20 lg:mt-24" ref={ref}>
-            <Header />
             <SubHeader />
           </div>
 
