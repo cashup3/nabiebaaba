@@ -8,6 +8,7 @@ import {
   siteUrl,
   slogan,
   socialProfiles,
+  studioSummary,
 } from "@/lib/site";
 
 export const dynamic = "force-static";
@@ -16,8 +17,8 @@ function renderLlmsFull() {
   const lines = [
     `# ${siteName}`,
     "",
-    `${siteName} (${siteUrl}) is a music video production company in Toronto, Canada.`,
-    `It produces music videos for artists and brands. Slogan: ${slogan}.`,
+    studioSummary,
+    `Website: ${siteUrl}. Slogan: ${slogan}.`,
     "The website states more than 15 years of experience in the entertainment industry.",
     "No street address is published.",
     "",

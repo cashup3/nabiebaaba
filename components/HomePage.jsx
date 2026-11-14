@@ -13,6 +13,7 @@ import Connection from "@/components/ConnectingSection/Connection";
 import BusinessFacts from "@/components/BusinessFacts";
 import Image from "next/image";
 import Link from "next/link";
+import { studioSummary } from "@/lib/site";
 
 const Planets = dynamic(
   () => import("@/components/Pipes/Planets").then((mod) => mod.Planets),
@@ -37,6 +38,9 @@ export default function HomePage() {
         <main>
           <div className="pt-28 sm:pt-32 lg:pt-40">
             <Header />
+            <p className="mt-5 max-w-3xl text-base sm:text-lg leading-relaxed text-gray-700 dark:text-gray-200">
+              {studioSummary}
+            </p>
             <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm sm:text-base font-semibold">
               <Link href="/services" className="underline underline-offset-4">
                 Production services
